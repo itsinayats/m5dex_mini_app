@@ -25,6 +25,7 @@ const WithdrawGram: React.FC = () => {
     updateWallet,
     handleWithdraw,
     config,
+    tasks,
   } = useAppContext();
 
   const navigate = useNavigate();
@@ -39,6 +40,9 @@ const WithdrawGram: React.FC = () => {
   const [loading, setLoading] = useState(false);
 
   if (!user) return null;
+
+  const allTasks = tasks || [];
+  const pendingCount = allTasks.filter((t) => !t.completed_at).length;
 
   /*
   |--------------------------------------------------------------------------
@@ -236,6 +240,8 @@ const WithdrawGram: React.FC = () => {
   */
 
   const handleFinalSubmit = async () => {
+    if (pendingCount > 0) return;
+
     const amountTON = parseFloat(withdrawAmount);
 
     if (
@@ -531,7 +537,7 @@ const WithdrawGram: React.FC = () => {
 
                               <div className="flex flex-col text-[8px] font-bold text-white/30 uppercase">
                                <div>{config?.withdrawtimes}X of total GRAM txn </div> 
-                              <div> (ton task, mining boost, rank boost)</div> 
+                              <div> (mining boost, rank boost)</div> 
 
                               </div>
                              
@@ -638,7 +644,7 @@ const WithdrawGram: React.FC = () => {
 
                     <button
                       onClick={handleMax}
-                      disabled={!!cooldown}
+                      disabled={!!cooldown || pendingCount > 0}
                       className="text-[9px] font-black text-white uppercase tracking-widest bg-slate-800 hover:bg-slate-700 border border-slate-700 px-3 py-1.5 rounded-lg active:scale-95 transition-all disabled:opacity-40"
                     >
                       Max
@@ -653,7 +659,7 @@ const WithdrawGram: React.FC = () => {
                       min="0"
                       value={withdrawAmount}
                       onChange={handleAmountChange}
-                      disabled={!!cooldown}
+                      disabled={!!cooldown || pendingCount > 0}
                       placeholder="0.00"
                       className="w-full bg-black/60 border border-white/10 rounded-2xl p-5 pr-20 text-left text-3xl font-black text-white focus:outline-none focus:border-cyan-500/50 focus:ring-1 focus:ring-cyan-500/20 transition-all placeholder:text-slate-800 disabled:opacity-50"
                     />
@@ -700,12 +706,33 @@ const WithdrawGram: React.FC = () => {
                 </div>
               )}
 
+              {pendingCount > 0 && (
+                <div
+                  role="status"
+                  className="rounded-2xl border border-amber-400/20 bg-amber-400/5 p-4"
+                >
+                  <div className="flex items-start gap-3">
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-amber-400/10 text-amber-300">
+                      <Lock size={18} />
+                    </div>
+                    <div className="min-w-0">
+                      <p className="text-sm font-bold text-amber-200">
+                        Complete your tasks to withdraw
+                      </p>
+                      <p className="mt-1 text-xs leading-relaxed text-slate-400">
+                        You have {pendingCount} pending {pendingCount === 1 ? "task" : "tasks"}.
+                        {" "}Withdrawal will be available once all tasks are completed.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              )}
+
               {/* =================================================
                   ACTION BUTTONS
               ================================================= */}
 
               <div className="flex gap-3">
-
                 <button
                   onClick={() => navigate(-1)}
                   className="flex-1 py-4 rounded-2xl bg-white/5 border border-white/10 font-black text-[10px] uppercase text-slate-400 active:scale-95 transition-all"
@@ -713,41 +740,33 @@ const WithdrawGram: React.FC = () => {
                   Back
                 </button>
 
-                {userFriendlyAddress ? (
-
+                {pendingCount > 0 ? (
                   <button
-                    disabled={
-                      !!error ||
-                      !!cooldown ||
-                      loading
-                    }
+                    onClick={() => navigate("/tasks")}
+                    className="flex-[2] py-4 px-3 rounded-2xl bg-gradient-to-r from-pink-600 via-purple-600 to-cyan-600 shadow-lg shadow-pink-500/20 font-black text-[10px] text-white uppercase tracking-widest active:scale-95 transition-all"
+                  >
+                    View Tasks
+                  </button>
+                ) : userFriendlyAddress ? (
+                  <button
+                    disabled={!!error || !!cooldown || loading}
                     onClick={handleFinalSubmit}
                     className={`flex-[2] py-4 rounded-2xl font-black text-[10px] uppercase tracking-widest transition-all ${
-                      error ||
-                      cooldown ||
-                      loading
+                      error || cooldown || loading
                         ? "bg-white/5 border border-white/5 text-slate-600"
                         : "bg-gradient-to-r from-pink-600 via-purple-600 to-cyan-600 shadow-lg shadow-pink-500/20 active:scale-95"
                     }`}
                   >
-                    {loading
-                      ? "Processing..."
-                      : "Confirm Withdrawal"}
+                    {loading ? "Processing..." : "Confirm Withdrawal"}
                   </button>
-
                 ) : (
-
                   <button
-                    onClick={() =>
-                      tonConnectUI.openModal()
-                    }
+                    onClick={() => tonConnectUI.openModal()}
                     className="flex-[2] py-4 rounded-2xl bg-blue-500 font-black text-[10px] uppercase tracking-widest shadow-lg shadow-blue-500/20 active:scale-95 transition-all"
                   >
                     Connect Wallet
                   </button>
-
                 )}
-
               </div>
 
             </div>

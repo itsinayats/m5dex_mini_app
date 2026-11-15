@@ -1401,7 +1401,7 @@ app.post("/api/tasks/complete", authenticateTelegram, async (req: any, res) => {
   const myUser = await User.findOne({ id: userId });
     if (task.type === "ton") {
       update.$inc.tontaskamount = quantity || 0;
-      update.$inc.total_deposit = quantity || 0;
+      // update.$inc.total_deposit = quantity || 0;
       update.$set = { ton_transaction_completed: true };
     }
 
@@ -1479,7 +1479,7 @@ if (amountToWithdraw > remainingLimit) {
   // Check last withdrawal
 if (user.last_withdrawal_at) {
   const lastWithdrawal = new Date(user.last_withdrawal_at).getTime();
-  const durationInMs = config.withdrawal_duration_days * 24 * 60 * 60 * 1000;
+  const durationInMs = config.withdrawal_duration_days * 1 * 60 * 60 * 1000;
   const cooldownEnd = lastWithdrawal + durationInMs;
   const currentTime = Date.now();
 
