@@ -1,0 +1,5 @@
+{
+  "name": "COBALT Miner",
+  "description": "A Telegram Mini App for mining COBALT tokens and completing tasks.",
+  "requestFramePermissions": []
+}
