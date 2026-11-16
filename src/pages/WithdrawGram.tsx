@@ -12,7 +12,6 @@ import {
   TonConnectButton,
   useTonConnectUI,
   useTonAddress,
-  THEME,
   CHAIN,
 } from "@tonconnect/ui-react";
 
@@ -77,26 +76,6 @@ const WithdrawGram: React.FC = () => {
       updateWallet(userFriendlyAddress);
     }
   }, [userFriendlyAddress]);
-
-  /*
-  |--------------------------------------------------------------------------
-  | TON CONNECT THEME
-  |--------------------------------------------------------------------------
-  */
-
-  tonConnectUI.uiOptions = {
-    uiPreferences: {
-      theme: THEME.DARK,
-      colorsSet: {
-        [THEME.DARK]: {
-          connectButton: {
-            background: "#8b5cf6",
-          },
-          accent: "#ec4899",
-        },
-      },
-    },
-  };
 
   /*
   |--------------------------------------------------------------------------
@@ -333,8 +312,8 @@ const WithdrawGram: React.FC = () => {
 
       <div className="flex justify-end mb-4">
         <div className="scale-75 origin-right">
-          <div className="p-[1.5px] rounded-[23px] bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 overflow-hidden">
-            <div className="rounded-[22px] overflow-hidden bg-[#0F172A]">
+          <div className="p-[1.5px] rounded-[23px] bg-gradient-to-r from-brand-500 via-brand-500 to-brand-500 overflow-hidden">
+            <div className="rounded-[22px] overflow-hidden bg-[#171b22]">
               <TonConnectButton />
             </div>
           </div>
@@ -345,36 +324,17 @@ const WithdrawGram: React.FC = () => {
           COOLDOWN
       ========================================================= */}
 
-      {cooldown ? (
-        <div className="mb-5 relative overflow-hidden rounded-2xl border border-pink-900/30 bg-black/40 p-5">
-          <div className="absolute top-0 left-0 w-full h-0.5 bg-red-500/30" />
-
-          <div className="flex flex-col items-center text-center gap-2">
-            <Lock
-              size={20}
-              className="text-red-500/50 animate-pulse"
-            />
-
-            <p className="text-[8px] font-black text-slate-600 uppercase tracking-[0.2em]">
-              Next_Withdrawal_Window
-            </p>
-
-            <p className="text-2xl font-black text-pink-500 font-mono tracking-tighter">
-              {formatCooldown(cooldown)}
-            </p>
-          </div>
-        </div>
-      ) : null}
+     
 
       {/* =========================================================
           MAIN WITHDRAW CARD
       ========================================================= */}
 
       <div className="relative">
-        <div className="absolute -inset-1 bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 rounded-[32px] opacity-20 blur-xl" />
+        <div className="absolute -inset-1 bg-gradient-to-r from-brand-500 via-brand-500 to-brand-500 rounded-[32px] opacity-20 blur-xl" />
 
-        <div className="relative p-[1.5px] rounded-[30px] bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500">
-          <div className="rounded-[29px] bg-[#090E1A] overflow-hidden">
+        <div className="relative p-[1.5px] rounded-[30px] bg-gradient-to-r from-brand-500 via-brand-500 to-brand-500">
+          <div className="rounded-[29px] bg-[#101318] overflow-hidden">
 
             {/* =================================================
                 OVERVIEW
@@ -382,18 +342,18 @@ const WithdrawGram: React.FC = () => {
 
             <div className="p-5 space-y-5">
 
-              <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.06] via-black/30 to-purple-500/[0.04] p-4">
+              <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.06] via-black/30 to-brand-500/[0.04] p-4">
 
-                <div className="absolute -top-16 -right-16 w-32 h-32 bg-cyan-500/10 blur-3xl rounded-full pointer-events-none" />
+                <div className="absolute -top-16 -right-16 w-32 h-32 bg-brand-500/10 blur-3xl rounded-full pointer-events-none" />
 
-                <div className="absolute -bottom-16 -left-16 w-32 h-32 bg-pink-500/10 blur-3xl rounded-full pointer-events-none" />
+                <div className="absolute -bottom-16 -left-16 w-32 h-32 bg-brand-500/10 blur-3xl rounded-full pointer-events-none" />
 
                 {/* Header */}
 
                 <div className="relative flex items-center justify-between mb-4">
 
                   <div>
-                    <h3 className="text-xl font-black uppercase tracking-widest bg-gradient-to-r from-white to-slate-500 bg-clip-text text-transparent">
+                    <h3 className="text-xl font-black uppercase tracking-widest bg-gradient-to-r from-white to-neutral-500 bg-clip-text text-transparent">
                       Withdraw GRAM
                     </h3>
 
@@ -402,8 +362,8 @@ const WithdrawGram: React.FC = () => {
                     </p>
                   </div>
 
-                  <div className="px-2.5 py-1 rounded-lg border border-cyan-400/10 bg-cyan-400/5">
-                    <span className="text-[8px] font-black uppercase tracking-widest text-cyan-400/70">
+                  <div className="px-2.5 py-1 rounded-lg border border-brand-400/10 bg-brand-400/5">
+                    <span className="text-[8px] font-black uppercase tracking-widest text-brand-400/70">
                       GRAM
                     </span>
                   </div>
@@ -436,10 +396,10 @@ const WithdrawGram: React.FC = () => {
                         GRAM Value
                       </p>
 
-                      <p className="mt-1 text-sm font-black bg-gradient-to-r from-pink-400 to-cyan-400 bg-clip-text text-transparent">
+                      <p className="mt-1 text-sm font-black bg-gradient-to-r from-brand-400 to-brand-400 bg-clip-text text-transparent">
                         {maxWithdrawable.toLocaleString()}
 
-                        <span className="ml-1 text-[8px] text-cyan-400/60">
+                        <span className="ml-1 text-[8px] text-brand-400/60">
                           GRAM
                         </span>
                       </p>
@@ -459,7 +419,7 @@ const WithdrawGram: React.FC = () => {
                       Total GRAM TXN
                     </p>
 
-                    <p className="mt-1 text-sm font-black bg-gradient-to-r from-pink-400 to-cyan-400 bg-clip-text text-transparent">
+                    <p className="mt-1 text-sm font-black bg-gradient-to-r from-brand-400 to-brand-400 bg-clip-text text-transparent">
                       {user.total_deposit.toLocaleString()}
                     </p>
 
@@ -475,7 +435,7 @@ const WithdrawGram: React.FC = () => {
                       Withdrawn
                     </p>
 
-                    <p className="mt-1 text-sm font-black bg-gradient-to-r from-pink-400 to-cyan-400 bg-clip-text text-transparent">
+                    <p className="mt-1 text-sm font-black bg-gradient-to-r from-brand-400 to-brand-400 bg-clip-text text-transparent">
                       {user.total_withdrawal.toLocaleString()}
                     </p>
 
@@ -489,7 +449,7 @@ const WithdrawGram: React.FC = () => {
 
                 {/* Withdrawal Limit */}
 
-                <div className="relative rounded-xl border border-purple-400/10 bg-purple-500/[0.035] p-3">
+                <div className="relative rounded-xl border border-brand-400/10 bg-brand-500/[0.035] p-3">
 
                   {(() => {
 
@@ -535,7 +495,7 @@ const WithdrawGram: React.FC = () => {
                             <p className="mt-1 text-[11px] font-black text-white/80">
                              
 
-                              <div className="flex flex-col text-[8px] font-bold text-white/30 uppercase">
+                              <div className="flex flex-col text-[8px] font-bold text-brand-400 uppercase">
                                <div>{config?.withdrawtimes}X of total GRAM txn </div> 
                               <div> (mining boost, rank boost)</div> 
 
@@ -551,7 +511,7 @@ const WithdrawGram: React.FC = () => {
                               Maximum
                             </p>
 
-                            <p className="mt-1 text-[11px] font-black bg-gradient-to-r from-pink-400 to-cyan-400 bg-clip-text text-transparent">
+                            <p className="mt-1 text-[11px] font-black bg-gradient-to-r from-brand-400 to-brand-400 bg-clip-text text-transparent">
                               {withdrawLimit.toLocaleString()}
 
                               <span className="ml-1 text-[7px] text-white/30">
@@ -569,7 +529,7 @@ const WithdrawGram: React.FC = () => {
                         <div className="relative h-2 w-full overflow-hidden rounded-full bg-black/60 border border-white/5">
 
                           <div
-                            className="absolute inset-y-0 left-0 rounded-full bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-400 transition-all duration-700"
+                            className="absolute inset-y-0 left-0 rounded-full bg-gradient-to-r from-brand-500 via-brand-500 to-brand-400 transition-all duration-700"
                             style={{
                               width: `${progress}%`,
                             }}
@@ -594,7 +554,7 @@ const WithdrawGram: React.FC = () => {
                               Progress
                             </span>
 
-                            <p className="text-[9px] font-black text-cyan-400">
+                            <p className="text-[9px] font-black text-brand-400">
                               {progress.toFixed(1)}%
                             </p>
                           </div>
@@ -604,7 +564,7 @@ const WithdrawGram: React.FC = () => {
                               Remaining
                             </span>
 
-                            <p className="text-[9px] font-black bg-gradient-to-r from-pink-400 to-cyan-400 bg-clip-text text-transparent">
+                            <p className="text-[9px] font-black bg-gradient-to-r from-brand-400 to-brand-400 bg-clip-text text-transparent">
                               {remaining.toLocaleString()} GRAM
                             </p>
                           </div>
@@ -618,21 +578,42 @@ const WithdrawGram: React.FC = () => {
                   })()}
 
                 </div>
-                <div className="mt-3 flex items-center gap-2 px-2 py-1 rounded-lg border border-green-500/10 bg-green-500/5">  
+                {/* <div className="mt-3 flex items-center gap-2 px-2 py-1 rounded-lg border border-green-500/10 bg-green-500/5">  
                   <AlertCircle size={30} className="text-yellow-500" /> 
-                  <p className="mt-2 text-[8px] font-bold text-pink-500  tracking-widest">
+                  <p className="mt-2 text-[8px] font-bold text-brand-500  tracking-widest">
                     Withdrawal limit is upto 2 times of the total GRAM transactions made using Mining Boost, Rank Boost or Ton task
                   </p>
-                  </div>
+                  </div> */}
               </div>
 
               {/* =================================================
                   AMOUNT INPUT
               ================================================= */}
 
-              <div className="relative">
 
-                <div className="absolute inset-0 bg-purple-500/5 blur-xl rounded-full pointer-events-none" />
+
+               {cooldown ? (
+        <div className="mb-5 relative overflow-hidden rounded-2xl border border-brand-900/30 bg-black/40 p-5">
+          <div className="absolute top-0 left-0 w-full h-0.5 bg-brand-500/30" />
+
+          <div className="flex flex-col items-center text-center gap-2">
+            <Lock
+              size={20}
+              className="text-brand-400/50 animate-pulse"
+            />
+
+            <p className="text-[8px] font-black text-neutral-600 uppercase tracking-[0.2em]">
+              Next_Withdrawal_Opens_In
+            </p>
+
+            <p className="text-2xl font-black text-brand-500 font-mono tracking-tighter">
+              {formatCooldown(cooldown)}
+            </p>
+          </div>
+        </div>
+      ) :  <div className="relative">
+
+                <div className="absolute inset-0 bg-brand-500/5 blur-xl rounded-full pointer-events-none" />
 
                 <div className="relative space-y-2">
 
@@ -645,7 +626,7 @@ const WithdrawGram: React.FC = () => {
                     <button
                       onClick={handleMax}
                       disabled={!!cooldown || pendingCount > 0}
-                      className="text-[9px] font-black text-white uppercase tracking-widest bg-slate-800 hover:bg-slate-700 border border-slate-700 px-3 py-1.5 rounded-lg active:scale-95 transition-all disabled:opacity-40"
+                      className="text-[9px] font-black text-white uppercase tracking-widest bg-neutral-800 hover:bg-neutral-700 border border-neutral-700 px-3 py-1.5 rounded-lg active:scale-95 transition-all disabled:opacity-40"
                     >
                       Max
                     </button>
@@ -661,12 +642,12 @@ const WithdrawGram: React.FC = () => {
                       onChange={handleAmountChange}
                       disabled={!!cooldown || pendingCount > 0}
                       placeholder="0.00"
-                      className="w-full bg-black/60 border border-white/10 rounded-2xl p-5 pr-20 text-left text-3xl font-black text-white focus:outline-none focus:border-cyan-500/50 focus:ring-1 focus:ring-cyan-500/20 transition-all placeholder:text-slate-800 disabled:opacity-50"
+                      className="w-full bg-black/60 border border-white/10 rounded-2xl p-5 pr-20 text-left text-3xl font-black text-white focus:outline-none focus:border-brand-500/50 focus:ring-1 focus:ring-brand-500/20 transition-all placeholder:text-neutral-800 disabled:opacity-50"
                     />
 
                     <div className="absolute right-5 inset-y-0 flex items-center pointer-events-none">
 
-                      <span className="bg-gradient-to-r from-pink-400 to-cyan-400 bg-clip-text text-transparent text-sm font-black uppercase tracking-widest">
+                      <span className="bg-gradient-to-r from-brand-400 to-brand-400 bg-clip-text text-transparent text-sm font-black uppercase tracking-widest">
                         GRAM
                       </span>
 
@@ -694,7 +675,9 @@ const WithdrawGram: React.FC = () => {
 
                 </div>
 
-              </div>
+              </div>}
+
+             
 
               {/* Error */}
 
@@ -705,6 +688,7 @@ const WithdrawGram: React.FC = () => {
                   </p>
                 </div>
               )}
+
 
               {pendingCount > 0 && (
                 <div
@@ -719,7 +703,7 @@ const WithdrawGram: React.FC = () => {
                       <p className="text-sm font-bold text-amber-200">
                         Complete your tasks to withdraw
                       </p>
-                      <p className="mt-1 text-xs leading-relaxed text-slate-400">
+                      <p className="mt-1 text-xs leading-relaxed text-neutral-400">
                         You have {pendingCount} pending {pendingCount === 1 ? "task" : "tasks"}.
                         {" "}Withdrawal will be available once all tasks are completed.
                       </p>
@@ -731,11 +715,11 @@ const WithdrawGram: React.FC = () => {
               {/* =================================================
                   ACTION BUTTONS
               ================================================= */}
-
+                  {!cooldown ? (
               <div className="flex gap-3">
                 <button
                   onClick={() => navigate(-1)}
-                  className="flex-1 py-4 rounded-2xl bg-white/5 border border-white/10 font-black text-[10px] uppercase text-slate-400 active:scale-95 transition-all"
+                  className="flex-1 py-4 rounded-2xl bg-white/5 border border-white/10 font-black text-[10px] uppercase text-neutral-400 active:scale-95 transition-all"
                 >
                   Back
                 </button>
@@ -743,7 +727,7 @@ const WithdrawGram: React.FC = () => {
                 {pendingCount > 0 ? (
                   <button
                     onClick={() => navigate("/tasks")}
-                    className="flex-[2] py-4 px-3 rounded-2xl bg-gradient-to-r from-pink-600 via-purple-600 to-cyan-600 shadow-lg shadow-pink-500/20 font-black text-[10px] text-white uppercase tracking-widest active:scale-95 transition-all"
+                    className="flex-[2] py-4 px-3 rounded-2xl bg-gradient-to-r from-brand-600 via-brand-600 to-brand-600 shadow-lg shadow-brand-500/20 font-black text-[10px] text-white uppercase tracking-widest active:scale-95 transition-all"
                   >
                     View Tasks
                   </button>
@@ -753,8 +737,8 @@ const WithdrawGram: React.FC = () => {
                     onClick={handleFinalSubmit}
                     className={`flex-[2] py-4 rounded-2xl font-black text-[10px] uppercase tracking-widest transition-all ${
                       error || cooldown || loading
-                        ? "bg-white/5 border border-white/5 text-slate-600"
-                        : "bg-gradient-to-r from-pink-600 via-purple-600 to-cyan-600 shadow-lg shadow-pink-500/20 active:scale-95"
+                        ? "bg-white/5 border border-white/5 text-neutral-600"
+                        : "bg-gradient-to-r from-brand-600 via-brand-600 to-brand-600 shadow-lg shadow-brand-500/20 active:scale-95"
                     }`}
                   >
                     {loading ? "Processing..." : "Confirm Withdrawal"}
@@ -762,12 +746,13 @@ const WithdrawGram: React.FC = () => {
                 ) : (
                   <button
                     onClick={() => tonConnectUI.openModal()}
-                    className="flex-[2] py-4 rounded-2xl bg-blue-500 font-black text-[10px] uppercase tracking-widest shadow-lg shadow-blue-500/20 active:scale-95 transition-all"
+                    className="flex-[2] py-4 rounded-2xl bg-brand-500 font-black text-[10px] uppercase tracking-widest shadow-lg shadow-brand-500/20 active:scale-95 transition-all"
                   >
                     Connect Wallet
                   </button>
                 )}
               </div>
+                  ):""}
 
             </div>
 
@@ -780,7 +765,7 @@ const WithdrawGram: React.FC = () => {
       <div className="flex items-center justify-center gap-2 mt-5">
         <ShieldCheck
           size={12}
-          className="text-cyan-500/50"
+          className="text-brand-500/50"
         />
 
         <p className="text-[8px] font-black uppercase tracking-widest text-white/20">

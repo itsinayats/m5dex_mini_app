@@ -13,17 +13,17 @@ const Admin: React.FC<AdminProps> = ({ adminWithdrawals, onAction, onBack }) => 
       <div className="max-w-4xl mx-auto space-y-8">
         <div className="flex justify-between items-center">
           <h1 className="text-3xl font-black uppercase tracking-tighter">Admin Panel</h1>
-          <button onClick={onBack} className="text-xs font-bold text-gray-500 uppercase hover:text-white">Back to App</button>
+          <button onClick={onBack} className="text-xs font-bold text-neutral-500 uppercase hover:text-white">Back to App</button>
         </div>
 
         <div className="bg-white/5 border border-white/10 rounded-3xl overflow-hidden">
           <div className="p-6 border-b border-white/10">
-            <h2 className="text-sm font-black uppercase tracking-widest text-blue-400">Withdrawal Requests</h2>
+            <h2 className="text-sm font-black uppercase tracking-widest text-brand-400">Withdrawal Requests</h2>
           </div>
           <div className="overflow-x-auto">
             <table className="w-full text-left">
               <thead>
-                <tr className="text-[10px] uppercase font-black text-gray-500 border-b border-white/5">
+                <tr className="text-[10px] uppercase font-black text-neutral-500 border-b border-white/5">
                   <th className="px-6 py-4">User</th>
                   <th className="px-6 py-4">Coin</th>
                   <th className="px-6 py-4">GRAM</th>
@@ -47,7 +47,7 @@ const Admin: React.FC<AdminProps> = ({ adminWithdrawals, onAction, onBack }) => 
                         {w.status}
                       </span>
                     </td>
-                    <td className="px-6 py-4 text-gray-500">{new Date(w.created_at).toLocaleDateString()}</td>
+                    <td className="px-6 py-4 text-neutral-500">{new Date(w.created_at).toLocaleDateString()}</td>
                     <td className="px-6 py-4">
                       {w.status === 'pending' && (
                         <div className="flex gap-2">
@@ -70,7 +70,7 @@ const Admin: React.FC<AdminProps> = ({ adminWithdrawals, onAction, onBack }) => 
                 ))}
                 {adminWithdrawals.length === 0 && (
                   <tr>
-                    <td colSpan={6} className="px-6 py-12 text-center text-gray-500 uppercase font-black tracking-widest text-[10px]">No requests found</td>
+                    <td colSpan={6} className="px-6 py-12 text-center text-neutral-500 uppercase font-black tracking-widest text-[10px]">No requests found</td>
                   </tr>
                 )}
               </tbody>

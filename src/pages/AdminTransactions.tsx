@@ -82,12 +82,12 @@ useEffect(() => {
 
   const getTypeColor = (type: string) => {
     switch (type) {
-      case 'mining': return 'text-blue-400';
+      case 'mining': return 'text-brand-400';
       case 'task': return 'text-green-400';
-      case 'ton_task': return 'text-purple-400';
+      case 'ton_task': return 'text-brand-400';
       case 'boost_rank': return 'text-yellow-400';
       case 'withdrawal': return 'text-red-400';
-      default: return 'text-gray-400';
+      default: return 'text-neutral-400';
     }
   };
 
@@ -95,12 +95,12 @@ useEffect(() => {
     <div className="space-y-8">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div className="flex items-center gap-3">
-          <History className="text-blue-500" size={32} />
+          <History className="text-brand-500" size={32} />
           <h1 className="text-3xl font-black uppercase tracking-tighter">Transaction Logs</h1>
         </div>
         
         <div className="relative w-full md:w-72">
-          <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" size={16} />
+          <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-neutral-500" size={16} />
          <input
   type="text"
   placeholder="Search by name, ID, or hash..."
@@ -109,12 +109,12 @@ useEffect(() => {
     setSearchQuery(e.target.value);
     setCurrentPage(1);
   }}
-  className="w-full bg-white/5 border border-white/10 rounded-2xl py-3 pl-12 pr-10 text-xs font-bold focus:outline-none focus:border-blue-500 transition-colors"
+  className="w-full bg-white/5 border border-white/10 rounded-2xl py-3 pl-12 pr-10 text-xs font-bold focus:outline-none focus:border-brand-500 transition-colors"
 />
           {searchQuery && (
             <button 
               onClick={() => setSearchQuery("")}
-              className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 hover:text-white"
+              className="absolute right-4 top-1/2 -translate-y-1/2 text-neutral-500 hover:text-white"
             >
               <X size={14} />
             </button>
@@ -126,7 +126,7 @@ useEffect(() => {
         <div className="overflow-x-auto">
           <table className="w-full text-left">
             <thead>
-              <tr className="text-[10px] uppercase font-black text-gray-500 border-b border-white/5">
+              <tr className="text-[10px] uppercase font-black text-neutral-500 border-b border-white/5">
                 <th className="px-6 py-4">User</th>
                 <th className="px-6 py-4">Type</th>
                 <th className="px-6 py-4">Description</th>
@@ -138,7 +138,7 @@ useEffect(() => {
             <tbody className="divide-y divide-white/5">
               {adminTransactions.length === 0 ? (
                 <tr>
-                  <td colSpan={6} className="px-6 py-12 text-center text-gray-500 uppercase text-xs font-bold tracking-widest">
+                  <td colSpan={6} className="px-6 py-12 text-center text-neutral-500 uppercase text-xs font-bold tracking-widest">
                     {searchQuery ? "No transactions match your search" : "No transactions found"}
                   </td>
                 </tr>
@@ -148,7 +148,7 @@ useEffect(() => {
                     <td className="px-6 py-4">
                       <div className="flex flex-col">
                         <span className="text-sm font-black">{tx.username || "Anonymous"}</span>
-                        <span className="text-[10px] text-gray-500 font-mono">{tx.user_id}</span>
+                        <span className="text-[10px] text-neutral-500 font-mono">{tx.user_id}</span>
                       </div>
                     </td>
                     <td className="px-6 py-4">
@@ -157,7 +157,7 @@ useEffect(() => {
                         {tx.type.replace('_', ' ')}
                       </div>
                     </td>
-                    <td className="px-6 py-4 text-gray-400 max-w-[200px] truncate">
+                    <td className="px-6 py-4 text-neutral-400 max-w-[200px] truncate">
                       {tx.description}
                     </td>
                     <td className="px-6 py-4">
@@ -166,7 +166,7 @@ useEffect(() => {
                           {tx.type === 'withdrawal' ? '-' : '+'}{tx.amount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })} {config?.coin_ticker}
                         </span>
                         {tx.amount_ton > 0 && (
-                          <span className="text-[9px] text-blue-400">{tx.amount_ton.toFixed(2)} GRAM</span>
+                          <span className="text-[9px] text-brand-400">{tx.amount_ton.toFixed(2)} GRAM</span>
                         )}
                       </div>
                     </td>
@@ -176,16 +176,16 @@ useEffect(() => {
                           href={`https://tonviewer.com/transaction/${tx.hash}`}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex items-center gap-1 text-blue-400 hover:text-blue-300 transition-colors group"
+                          className="flex items-center gap-1 text-brand-400 hover:text-brand-300 transition-colors group"
                         >
                           <span className="font-mono text-[10px] max-w-[100px] truncate">{tx.hash}</span>
                           <ExternalLink size={10} className="opacity-0 group-hover:opacity-100 transition-opacity" />
                         </a>
                       ) : (
-                        <span className="text-gray-600">N/A</span>
+                        <span className="text-neutral-600">N/A</span>
                       )}
                     </td>
-                    <td className="px-6 py-4 text-gray-500">
+                    <td className="px-6 py-4 text-neutral-500">
                       {new Date(tx.created_at).toLocaleString()}
                     </td>
                   </tr>
@@ -207,7 +207,7 @@ useEffect(() => {
           >
             Previous
           </button>
-          <span className="text-xs font-bold uppercase tracking-widest text-gray-500">
+          <span className="text-xs font-bold uppercase tracking-widest text-neutral-500">
             Page {currentPage} of {totalPages}
           </span>
           <button

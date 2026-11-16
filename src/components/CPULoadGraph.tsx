@@ -80,7 +80,7 @@ const CPULoadGraph: React.FC<CPULoadGraphProps> = ({
   `;
 
   return (
-    <div className="relative w-full h-24 overflow-hidden rounded-2xl bg-black border border-slate-800/80 mb-5">
+    <div className="relative w-full h-24 overflow-hidden rounded-2xl bg-black border border-neutral-800/80 mb-5">
       
 
      
@@ -93,13 +93,13 @@ const CPULoadGraph: React.FC<CPULoadGraphProps> = ({
       >
         <defs>
           <linearGradient id="cpuArea" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#22d3ee" stopOpacity="0.35" />
-            <stop offset="100%" stopColor="#22d3ee" stopOpacity="0.02" />
+            <stop offset="0%" stopColor="#ffe65b" stopOpacity="0.35" />
+            <stop offset="100%" stopColor="#ffe65b" stopOpacity="0.02" />
           </linearGradient>
 
           <linearGradient id="cpuLine" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="#8b5cf6" />
-            <stop offset="100%" stopColor="#22d3ee" />
+            <stop offset="0%" stopColor="#ffe000" />
+            <stop offset="100%" stopColor="#ffe65b" />
           </linearGradient>
         </defs>
 
@@ -138,17 +138,17 @@ const CPULoadGraph: React.FC<CPULoadGraphProps> = ({
           strokeLinecap="round"
           strokeLinejoin="round"
           style={{
-            filter: "drop-shadow(0 0 4px rgba(34,211,238,0.8))",
+            filter: "drop-shadow(0 0 4px rgba(255,224,0,0.8))",
           }}
         />
       </svg>
 
       {/* Bottom labels */}
-      <div className="absolute bottom-2 left-4 text-[7px] font-bold tracking-widest text-slate-200">
+      <div className="absolute bottom-2 left-4 text-[7px] font-bold tracking-widest text-neutral-200">
         GPU LOAD
       </div>
 
-      <div className="absolute bottom-2 right-3 text-[7px] text-slate-200">
+      <div className="absolute bottom-2 right-3 text-[7px] text-neutral-200">
         {cpuLoad.toFixed(1)}%
       </div>
     </div>

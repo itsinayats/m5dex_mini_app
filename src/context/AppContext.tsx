@@ -158,7 +158,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   initdata ='query_id=AAERwXNFAAAAABHBc0W8BgeO&user=%7B%22id%22%3A1165213969%2C%22first_name%22%3A%22Inayat%22%2C%22last_name%22%3A%22Hussain%22%2C%22username%22%3A%22itsinayat%22%2C%22language_code%22%3A%22en%22%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2FiUHZ1sh1sknoFZhs4q0_ghxTbhp20EoHjiMZgn5MiTQ.svg%22%7D&auth_date=1794749499&signature=D98AUJM5GtSXIHJg9zPV7a48GkidSh5slBXZnBMclhE4tQxsmcplbUovB24EHkM4x-s4arnAqNssQdvbFdo_AA&hash=411cac8bb361c70a8eca96843d7959b3e662629e5cf75ff545a0de03196d9e32';
   useEffect(() => {
   WebApp.expand();
-  WebApp.setHeaderColor("#030515");
+  WebApp.setHeaderColor("#07090c");
   WebApp.disableVerticalSwipes();
   WebApp.HapticFeedback.impactOccurred('light');
 }, []);
@@ -300,7 +300,7 @@ const handleCheckin = async () => {
         particleCount: data.isReset ? 50 : 150, // Less confetti for a reset
         spread: 70,
         origin: { y: 0.6 },
-        colors: data.isReset ? ['#ff4444', '#ffffff'] : ['#2563eb', '#3b82f6', '#ffffff']
+        colors: data.isReset ? ['#ff4444', '#ffffff'] : ['#ffe000', '#ffcf00', '#ffffff']
       });
 
       // Close celebration after 3 seconds
@@ -339,7 +339,7 @@ const handleCheckin = async () => {
         particleCount: 150,
         spread: 70,
         origin: { y: 0.6 },
-        colors: ['#2563eb', '#ffffff', '#fbbf24']
+        colors: ['#ffe000', '#ffffff', '#fbbf24']
       });
       setTimeout(() => setShowCelebration(false), 5000);
     } else {
@@ -388,7 +388,7 @@ const handleCheckin = async () => {
       particleCount: 150,
       spread: 70,
       origin: { y: 0.6 },
-      colors: ['#2563eb', '#ffffff', '#fbbf24']
+      colors: ['#ffe000', '#ffffff', '#fbbf24']
     });
     setTimeout(() => setShowCelebration(false), 5000);
     initUser(true);
@@ -441,7 +441,7 @@ const handleCheckin = async () => {
       particleCount: 150,
       spread: 70,
       origin: { y: 0.6 },
-      colors: ['#2563eb', '#ffffff', '#fbbf24']
+      colors: ['#ffe000', '#ffffff', '#fbbf24']
     });
     setTimeout(() => setShowCelebration(false), 5000);
     initUser(true);
@@ -465,7 +465,7 @@ const handleCheckin = async () => {
       particleCount: 150,
       spread: 70,
       origin: { y: 0.6 },
-      colors: ['#2563eb', '#ffffff', '#fbbf24']
+      colors: ['#ffe000', '#ffffff', '#fbbf24']
     });
     setTimeout(() => setShowCelebration(false), 5000);
     initUser(true);
@@ -493,7 +493,7 @@ const handleCheckin = async () => {
         particleCount: 150,
         spread: 70,
         origin: { y: 0.6 },
-        colors: ['#2563eb', '#ffffff', '#fbbf24']
+        colors: ['#ffe000', '#ffffff', '#fbbf24']
       });
       setTimeout(() => setShowCelebration(false), 5000);
       initUser(true);
@@ -528,7 +528,7 @@ const handleCheckin = async () => {
         particleCount: 150,
         spread: 70,
         origin: { y: 0.6 },
-        colors: ['#2563eb', '#ffffff', '#fbbf24']
+        colors: ['#ffe000', '#ffffff', '#fbbf24']
       });
       setTimeout(() => setShowCelebration(false), 5000);
       initUser(true);
@@ -626,7 +626,7 @@ alert("Withdrawal failed");
         particleCount: 150,
         spread: 70,
         origin: { y: 0.6 },
-        colors: ['#2563eb', '#ffffff', '#fbbf24']
+        colors: ['#ffe000', '#ffffff', '#fbbf24']
       });
       setTimeout(() => setShowCelebration(false), 5000);
     } else {
@@ -655,7 +655,7 @@ alert("Withdrawal failed");
         particleCount: 150,
         spread: 70,
         origin: { y: 0.6 },
-        colors: ['#2563eb', '#ffffff', '#fbbf24']
+        colors: ['#ffe000', '#ffffff', '#fbbf24']
       });
       setTimeout(() => setShowCelebration(false), 5000);
     } else {
@@ -703,7 +703,7 @@ alert("Withdrawal failed");
         particleCount: 150,
         spread: 70,
         origin: { y: 0.6 },
-        colors: ['#2563eb', '#ffffff', '#fbbf24']
+        colors: ['#ffe000', '#ffffff', '#fbbf24']
       });
       setTimeout(() => setShowCelebration(false), 3000);
       initUser(true);
@@ -837,7 +837,7 @@ const checkChatMember = async (telegramId:string) => {
         particleCount: 150,
         spread: 70,
         origin: { y: 0.6 },
-        colors: ['#2563eb', '#ffffff', '#fbbf24']
+        colors: ['#ffe000', '#ffffff', '#fbbf24']
       });
       setTimeout(() => setShowCelebration(false), 5000);
 
@@ -889,7 +889,7 @@ const checkChatMember = async (telegramId:string) => {
           particleCount: 200,
           spread: 80,
           origin: { y: 0.6 },
-          colors: ['#ef4444', '#f59e0b', '#10b981', '#3b82f6', '#8b5cf6']
+          colors: ['#ef4444', '#f59e0b', '#10b981', '#ffcf00', '#ffe000']
         });
 
         // Auto-hide celebration and refresh data

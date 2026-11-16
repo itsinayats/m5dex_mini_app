@@ -35,10 +35,10 @@ const BannedScreen = () => (
     </div>
     <div className="space-y-2">
       <h1 className="text-3xl font-black uppercase tracking-tighter text-white">Access Denied</h1>
-      <p className="text-gray-400 text-sm max-w-xs">Your account has been permanently banned for violating our terms of service.</p>
+      <p className="text-neutral-400 text-sm max-w-xs">Your account has been permanently banned for violating our terms of service.</p>
     </div>
     <div className="pt-4">
-      <p className="text-[10px] text-gray-600 uppercase font-black tracking-widest">Contact support if you believe this is a mistake.</p>
+      <p className="text-[10px] text-neutral-600 uppercase font-black tracking-widest">Contact support if you believe this is a mistake.</p>
     </div>
   </div>
 );

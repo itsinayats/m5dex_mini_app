@@ -66,23 +66,23 @@ const AdminUsers: React.FC = () => {
     <div className="space-y-8">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div className="flex items-center gap-3">
-          <Users className="text-blue-500" size={32} />
+          <Users className="text-brand-500" size={32} />
           <h1 className="text-3xl font-black uppercase tracking-tighter">User Management</h1>
         </div>
         
         <div className="relative w-full md:w-72">
-          <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" size={16} />
+          <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-neutral-500" size={16} />
           <input 
             type="text"
             placeholder="Search by name, ID, or ref..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full bg-white/5 border border-white/10 rounded-2xl py-3 pl-12 pr-10 text-xs font-bold focus:outline-none focus:border-blue-500 transition-colors"
+            className="w-full bg-white/5 border border-white/10 rounded-2xl py-3 pl-12 pr-10 text-xs font-bold focus:outline-none focus:border-brand-500 transition-colors"
           />
           {searchQuery && (
             <button 
               onClick={() => setSearchQuery("")}
-              className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 hover:text-white"
+              className="absolute right-4 top-1/2 -translate-y-1/2 text-neutral-500 hover:text-white"
             >
               <X size={14} />
             </button>
@@ -94,7 +94,7 @@ const AdminUsers: React.FC = () => {
         <div className="overflow-x-auto">
           <table className="w-full text-left">
             <thead>
-              <tr className="text-[10px] uppercase font-black text-gray-500 border-b border-white/5">
+              <tr className="text-[10px] uppercase font-black text-neutral-500 border-b border-white/5">
                 <th className="px-6 py-4">User Info</th>
                 <th className="px-6 py-4">Balance</th>
                 <th className="px-6 py-4">Role</th>
@@ -106,7 +106,7 @@ const AdminUsers: React.FC = () => {
             <tbody className="divide-y divide-white/5">
               {adminUsers.length === 0 ? (
                 <tr>
-                  <td colSpan={6} className="px-6 py-12 text-center text-gray-500 uppercase text-xs font-bold tracking-widest">
+                  <td colSpan={6} className="px-6 py-12 text-center text-neutral-500 uppercase text-xs font-bold tracking-widest">
                     {searchQuery ? "No users match your search" : "No users found in database"}
                   </td>
                 </tr>
@@ -117,25 +117,25 @@ const AdminUsers: React.FC = () => {
                       <div className="flex flex-col">
                         <span className="text-sm font-black">{u.username || "Anonymous"}</span>
                         <div className="flex items-center gap-2">
-                          <span className="text-[10px] text-gray-500 font-mono">{u.id}</span>
+                          <span className="text-[10px] text-neutral-500 font-mono">{u.id}</span>
                           
                         </div>
                       </div>
                     </td>
                     <td className="px-6 py-4">
                       <div className="flex flex-col">
-                        <span className="text-blue-400">{(u.total_balance ?? 0).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })} {config?.coin_ticker}</span>
-                        <span className="text-[9px] text-gray-600 uppercase">{u.mining_speed} PPH</span>
+                        <span className="text-brand-400">{(u.total_balance ?? 0).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })} {config?.coin_ticker}</span>
+                        <span className="text-[9px] text-neutral-600 uppercase">{u.mining_speed} PPH</span>
                       </div>
                     </td>
                     <td className="px-6 py-4">
                       <div className="flex items-center gap-1.5">
                         {u.role === 'admin' ? (
-                          <ShieldAlert size={14} className="text-purple-400" />
+                          <ShieldAlert size={14} className="text-brand-400" />
                         ) : (
-                          <UserCheck size={14} className="text-gray-500" />
+                          <UserCheck size={14} className="text-neutral-500" />
                         )}
-                        <span className={`uppercase text-[9px] ${u.role === 'admin' ? 'text-purple-400' : 'text-gray-500'}`}>
+                        <span className={`uppercase text-[9px] ${u.role === 'admin' ? 'text-brand-400' : 'text-neutral-500'}`}>
                           {u.role}
                         </span>
                       </div>
@@ -147,7 +147,7 @@ const AdminUsers: React.FC = () => {
                         {u.is_banned ? 'Banned' : 'Active'}
                       </span>
                     </td>
-                    <td className="px-6 py-4 text-gray-500">
+                    <td className="px-6 py-4 text-neutral-500">
                       {new Date(u.created_at || Date.now()).toLocaleDateString()}
                     </td>
                     <td className="px-6 py-4">
@@ -164,7 +164,7 @@ const AdminUsers: React.FC = () => {
                         <button 
                           onClick={() => handleRoleToggle(u.id, u.role)}
                           className={`p-2 rounded-xl transition-colors ${
-                            u.role === 'admin' ? 'bg-gray-600/20 text-gray-400 hover:bg-gray-600/30' : 'bg-purple-600/20 text-purple-400 hover:bg-purple-600/30'
+                            u.role === 'admin' ? 'bg-neutral-600/20 text-neutral-400 hover:bg-neutral-600/30' : 'bg-brand-600/20 text-brand-400 hover:bg-brand-600/30'
                           }`}
                           title={u.role === 'admin' ? "Make Regular User" : "Make Admin"}
                         >
@@ -194,7 +194,7 @@ const AdminUsers: React.FC = () => {
                         
                         {/* <button 
                           onClick={() => handleLoginAs(u.id)}
-                          className="p-2 bg-blue-950/50 text-blue-400 rounded-xl hover:bg-blue-950/30 transition-colors"
+                          className="p-2 bg-brand-950/50 text-brand-400 rounded-xl hover:bg-brand-950/30 transition-colors"
                           title="Login As User"
                         >
                           <LogIn size={16} />
@@ -221,7 +221,7 @@ const AdminUsers: React.FC = () => {
           >
             Previous
           </button>
-          <span className="text-xs font-bold uppercase tracking-widest text-gray-500">
+          <span className="text-xs font-bold uppercase tracking-widest text-neutral-500">
             Page {currentPage} of {totalPages}
           </span>
           <button

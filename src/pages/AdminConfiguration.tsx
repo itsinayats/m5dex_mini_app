@@ -82,17 +82,17 @@ const parseValue = (val: string) => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-800 p-4 md:p-8 text-gray-900">
+    <div className="min-h-screen bg-neutral-800 p-4 md:p-8 text-neutral-900">
       <div className="max-w-5xl mx-auto">
         
         {/* Header */}
         <div className="flex items-center gap-3 mb-8">
-          <div className="bg-indigo-600 p-2 rounded-lg text-white">
+          <div className="bg-brand-600 p-2 rounded-lg text-neutral-950">
             <Settings size={24} />
           </div>
           <div>
             <h1 className="text-2xl font-bold tracking-tight">System Configuration</h1>
-            <p className="text-gray-500 text-sm">Manage global environment variables and JSON schemas.</p>
+            <p className="text-neutral-500 text-sm">Manage global environment variables and JSON schemas.</p>
           </div>
         </div>
 
@@ -100,17 +100,17 @@ const parseValue = (val: string) => {
           
           {/* Form Section */}
           <div className="lg:col-span-1">
-            <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 sticky top-8">
+            <div className="bg-white rounded-xl shadow-sm border border-neutral-200 p-6 sticky top-8">
               <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
-                <Plus size={18} className="text-indigo-600" />
+                <Plus size={18} className="text-brand-600" />
                 {key ? "Edit Entry" : "New Config"}
               </h3>
               
               <div className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Key Name</label>
+                  <label className="block text-sm font-medium text-neutral-700 mb-1">Key Name</label>
                   <input
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all"
+                    className="w-full px-3 py-2 border border-neutral-300 rounded-md focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition-all"
                     placeholder="e.g. miningPlans"
                     value={key}
                     onChange={(e) => setKey(e.target.value)}
@@ -118,9 +118,9 @@ const parseValue = (val: string) => {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">JSON Value</label>
+                  <label className="block text-sm font-medium text-neutral-700 mb-1">JSON Value</label>
                   <textarea
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md font-mono text-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-all"
+                    className="w-full px-3 py-2 border border-neutral-300 rounded-md font-mono text-sm focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition-all"
                     placeholder='{"enabled": true}'
                     value={value}
                     onChange={(e) => setValue(e.target.value)}
@@ -130,7 +130,7 @@ const parseValue = (val: string) => {
 
                 <button
                   onClick={saveConfig}
-                  className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-4 rounded-md transition-colors flex items-center justify-center gap-2"
+                  className="w-full bg-brand-600 hover:bg-brand-700 text-white font-medium py-2 px-4 rounded-md transition-colors flex items-center justify-center gap-2"
                 >
                   <Save size={18} />
                   Save Configuration
@@ -139,7 +139,7 @@ const parseValue = (val: string) => {
                 {key && (
                   <button 
                     onClick={() => {setKey(""); setValue("");}}
-                    className="w-full text-gray-500 hover:text-gray-700 text-sm transition-colors"
+                    className="w-full text-neutral-500 hover:text-neutral-700 text-sm transition-colors"
                   >
                     Cancel Editing
                   </button>
@@ -150,29 +150,29 @@ const parseValue = (val: string) => {
 
           {/* List Section */}
           <div className="lg:col-span-2">
-            <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
-              <div className="px-6 py-4 border-b border-gray-200 bg-gray-50/50 flex justify-between items-center">
+            <div className="bg-white rounded-xl shadow-sm border border-neutral-200 overflow-hidden">
+              <div className="px-6 py-4 border-b border-neutral-200 bg-neutral-50/50 flex justify-between items-center">
                 <h3 className="font-semibold flex items-center gap-2">
-                  <Database size={18} className="text-gray-400" />
+                  <Database size={18} className="text-neutral-400" />
                   Live Configurations
                 </h3>
-                <span className="text-xs font-medium px-2 py-1 bg-indigo-100 text-indigo-700 rounded-full">
+                <span className="text-xs font-medium px-2 py-1 bg-brand-100 text-brand-900 rounded-full">
                   {configs.length} Keys
                 </span>
               </div>
 
-              <div className="divide-y divide-gray-200">
+              <div className="divide-y divide-neutral-200">
                 {loading ? (
-                   <div className="p-8 text-center text-gray-400">Loading...</div>
+                   <div className="p-8 text-center text-neutral-400">Loading...</div>
                 ) : configs.length === 0 ? (
-                  <div className="p-8 text-center text-gray-400">No configurations found.</div>
+                  <div className="p-8 text-center text-neutral-400">No configurations found.</div>
                 ) : (
                   configs?.map(([k, v]) => (
-                    <div key={k} className="p-6 hover:bg-gray-50 transition-colors group">
+                    <div key={k} className="p-6 hover:bg-neutral-50 transition-colors group">
                       <div className="flex items-start justify-between">
                         <div className="flex-1 min-w-0">
-                          <p className="text-sm font-bold text-indigo-600 truncate mb-1">{k}</p>
-                          <pre className="bg-gray-900 text-gray-100 p-3 rounded-lg text-xs overflow-x-auto max-h-40">
+                          <p className="text-sm font-bold text-brand-600 truncate mb-1">{k}</p>
+                          <pre className="bg-neutral-900 text-neutral-100 p-3 rounded-lg text-xs overflow-x-auto max-h-40">
                             {JSON.stringify(v, null, 2)}
                           </pre>
                         </div>
@@ -184,14 +184,14 @@ const parseValue = (val: string) => {
                               setValue(JSON.stringify(v, null, 2));
                               window.scrollTo({ top: 0, behavior: 'smooth' });
                             }}
-                            className="p-2 text-gray-400 hover:text-indigo-600 hover:bg-indigo-50 rounded-md"
+                            className="p-2 text-neutral-400 hover:text-brand-600 hover:bg-brand-500/10 rounded-md"
                             title="Edit"
                           >
                             <Edit3 size={18} />
                           </button>
                           <button
                             onClick={() => deleteConfig(k)}
-                            className="p-2 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded-md"
+                            className="p-2 text-neutral-400 hover:text-red-600 hover:bg-red-50 rounded-md"
                             title="Delete"
                           >
                             <Trash2 size={18} />

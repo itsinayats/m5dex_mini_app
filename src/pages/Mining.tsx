@@ -154,24 +154,24 @@ useEffect(() => {
       {/* Header - Rainbow Border Style */}
       <div className="flex justify-between items-center pt-2">
         <div className="flex items-center gap-2">
-          <Layers size={14} className="text-pink-400" />
-          <h1 className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">Total Mined</h1>
+          <Layers size={14} className="text-brand-400" />
+          <h1 className="text-[10px] font-black uppercase tracking-[0.2em] text-neutral-400">Total Mined</h1>
         </div>
-        <div className="p-[1px] rounded-full bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500">
-            <div className="bg-[#0f172a] px-3 py-1 rounded-full flex items-center gap-1.5">
-                <span className="text-xs font-black bg-gradient-to-r from-pink-400 to-cyan-400 bg-clip-text text-transparent">
+        <div className="p-[1px] rounded-full bg-gradient-to-r from-brand-500 via-brand-500 to-brand-500">
+            <div className="bg-[#171b22] px-3 py-1 rounded-full flex items-center gap-1.5">
+                <span className="text-xs font-black bg-gradient-to-r from-brand-400 to-brand-400 bg-clip-text text-transparent">
                     {user.mining_balance.toLocaleString()}
                 </span>
-                <span className="text-[8px] font-bold text-slate-500 uppercase">{config?.coin_ticker}</span>
+                <span className="text-[8px] font-bold text-neutral-500 uppercase">{config?.coin_ticker}</span>
             </div>
         </div>
       </div>
 
       {/* Hero Display - Multi-color Text */}
       <div className="relative flex flex-col items-center text-center py-6">
-        <div className="absolute inset-0 bg-gradient-to-b from-purple-500/10 to-transparent blur-3xl -z-10" />
-        <p className="text-[10px] font-black text-slate-400 uppercase tracking-[0.4em] mb-2">Progress Mining</p>
-        <h1 className="text-7xl font-black tracking-tighter tabular-nums  bg-gradient-to-br from-white via-slate-200 to-slate-500 bg-clip-text text-transparent">
+        <div className="absolute inset-0 bg-gradient-to-b from-brand-500/10 to-transparent blur-3xl -z-10" />
+        <p className="text-[10px] font-black text-neutral-400 uppercase tracking-[0.4em] mb-2">Progress Mining</p>
+        <h1 className="text-7xl font-black tracking-tighter tabular-nums  bg-gradient-to-br from-white via-neutral-200 to-neutral-500 bg-clip-text text-transparent">
           {minedTokens.toFixed(3)}
         </h1>
         <div className="flex items-center gap-1.5 opacity-60 mb-4">
@@ -187,17 +187,17 @@ useEffect(() => {
       </div>
         <div className="bg-white/5 backdrop-blur-md px-4 py-2 rounded-2xl border border-white/10 flex items-center gap-3">
           <div className="flex gap-1">
-            <div className="w-1 h-1 rounded-full bg-pink-500 animate-bounce" />
-            <div className="w-1 h-1 rounded-full bg-purple-500 animate-bounce [animation-delay:0.2s]" />
-            <div className="w-1 h-1 rounded-full bg-cyan-500 animate-bounce [animation-delay:0.4s]" />
+            <div className="w-1 h-1 rounded-full bg-brand-500 animate-bounce" />
+            <div className="w-1 h-1 rounded-full bg-brand-500 animate-bounce [animation-delay:0.2s]" />
+            <div className="w-1 h-1 rounded-full bg-brand-500 animate-bounce [animation-delay:0.4s]" />
           </div>
           
-          <span className="text-[10px] font-black text-slate-300 uppercase tracking-[0.15em]">
-            {user.mining_speed} PPH <span className="text-slate-500 mx-1">|</span>
-            <span className={`${isActuallyMining ? "text-[#50C878] animate-pulse" : "text-[#00d3f3]"}`}>
+          <span className="text-[10px] font-black text-neutral-300 uppercase tracking-[0.15em]">
+            {user.mining_speed} PPH <span className="text-neutral-500 mx-1">|</span>
+            <span className={`${isActuallyMining ? "text-[#50C878] animate-pulse" : "text-[#ffe000]"}`}>
                {/* USDT Value - Added Section */}
       
-  <span className={isActuallyMining ? "text-[#50C878] animate-pulse" : "text-[#00d3f3]"}>
+  <span className={isActuallyMining ? "text-[#50C878] animate-pulse" : "text-[#ffe000]"}>
   {isActuallyMining ? "Mining Live" : "Mining Stopped"}
 </span>
 </span>
@@ -208,14 +208,14 @@ useEffect(() => {
       {/* Telemetry Grid - Color Transitions */}
       <div className="grid grid-cols-3 gap-3">
         {[
-          { label: "CORE", val: `${cpuLoad}%`, icon: Cpu, grad: "from-pink-500/20 to-transparent", border: "border-pink-500/20" },
-          { label: "HEAT", val: `${temp}°C`, icon: Thermometer, grad: "from-orange-500/20 to-transparent", border: "border-orange-500/20" },
-          { label: "BEAM", val: isActuallyMining ? `${ping}ms` : "---", icon: Signal, grad: "from-cyan-500/20 to-transparent", border: "border-cyan-500/20" }
+          { label: "CORE", val: `${cpuLoad}%`, icon: Cpu, grad: "from-brand-500/20 to-transparent", border: "border-brand-500/20" },
+          { label: "HEAT", val: `${temp}°C`, icon: Thermometer, grad: "from-brand-500/20 to-transparent", border: "border-orange-500/20" },
+          { label: "BEAM", val: isActuallyMining ? `${ping}ms` : "---", icon: Signal, grad: "from-brand-500/20 to-transparent", border: "border-brand-500/20" }
         ]?.map((stat, i) => (
-          <div key={i} className={`bg-[#0F172A] border ${stat.border} rounded-2xl p-4 flex flex-col items-center gap-2 relative overflow-hidden`}>
+          <div key={i} className={`bg-[#171b22] border ${stat.border} rounded-2xl p-4 flex flex-col items-center gap-2 relative overflow-hidden`}>
             <div className={`absolute inset-0 bg-gradient-to-b ${stat.grad} pointer-events-none`} />
             <stat.icon size={16} className="text-white relative z-10" />
-            <p className="text-[7px] font-black text-slate-500 uppercase tracking-widest relative z-10">{stat.label}</p>
+            <p className="text-[7px] font-black text-neutral-500 uppercase tracking-widest relative z-10">{stat.label}</p>
             <p className="text-xs font-black text-white tabular-nums relative z-10">{stat.val}</p>
           </div>
         ))}
@@ -225,11 +225,11 @@ useEffect(() => {
           {!user.mining_started_at ? (
             <button 
               onClick={startMining} 
-              className="group relative w-full h-14 rounded-2xl overflow-hidden font-black text-sm uppercase tracking-[0.2em] transition-all active:scale-95"
+              className="group relative w-full h-14 rounded-2xl overflow-hidden font-black text-[#000] text-sm uppercase tracking-[0.2em] transition-all active:scale-95"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-pink-600 via-purple-600 to-cyan-600 animate-gradient-x" />
+              <div className="absolute inset-0 bg-gradient-to-r from-brand-600 via-brand-600 to-brand-600 animate-gradient-x" />
               <span className="relative z-10 text-white flex items-center justify-center gap-2">
-                <Sparkles size={16} /> Start Mining
+                <Sparkles className="text-[#000]" size={16} /> <span className="text-[#000]">Start Mining</span>
               </span>
             </button>
           ) : (
@@ -239,7 +239,7 @@ useEffect(() => {
               className={`w-full h-14 rounded-2xl font-black text-sm transition-all active:scale-95 uppercase tracking-[0.2em] border ${
                 isMiningFinished 
                 ? 'bg-white text-black border-transparent shadow-xl' 
-                : 'bg-white/5 text-slate-500 border-white/10'
+                : 'bg-white/5 text-neutral-500 border-white/10'
               }`}
             >
               {isLoading ? 'Syncing...' : isMiningFinished ? 'Claim' : 'Mining...'}
@@ -256,20 +256,20 @@ useEffect(() => {
   {/* MINING PROGRESS */}
   <div className="w-full space-y-3">
     <div className="flex justify-between items-end px-2">
-      <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest">
+      <p className="text-[10px] font-black text-neutral-500 uppercase tracking-widest">
         Mining Progress
       </p>
 
-      <p className="text-sm font-black bg-gradient-to-r from-pink-400 to-cyan-400 bg-clip-text text-transparent tracking-tighter tabular-nums">
+      <p className="text-sm font-black bg-gradient-to-r from-brand-400 to-brand-400 bg-clip-text text-transparent tracking-tighter tabular-nums">
         {miningTime}
       </p>
     </div>
 
-    <div className="w-full h-3 bg-slate-900 rounded-full overflow-hidden border border-white/5 p-[2px]">
+    <div className="w-full h-3 bg-neutral-900 rounded-full overflow-hidden border border-white/5 p-[2px]">
       <motion.div
         initial={{ width: 0 }}
         animate={{ width: `${miningProgress}%` }}
-        className="h-full bg-gradient-to-r from-pink-500 via-purple-500 via-blue-500 to-cyan-500 rounded-full shadow-[0_0_20px_rgba(192,38,211,0.4)]"
+        className="h-full bg-gradient-to-r from-brand-500 via-brand-500 to-brand-500 rounded-full shadow-[0_0_20px_rgba(255,224,0,0.4)]"
       />
     </div>
   </div>
@@ -278,7 +278,7 @@ useEffect(() => {
           
           <button 
             onClick={() => { setBoostType('mining'); setShowBoostSheet(true); }} 
-            className="w-full bg-[#0F172A] border border-white/10 h-14 rounded-2xl font-black flex items-center justify-center gap-3 text-slate-300 text-xs uppercase tracking-widest active:scale-95 transition-all hover:border-purple-500/50"
+            className="w-full bg-[#171b22] border border-white/10 h-14 rounded-2xl font-black flex items-center justify-center gap-3 text-neutral-300 text-xs uppercase tracking-widest active:scale-95 transition-all hover:border-brand-500/50"
           >
             <Zap size={16} className="text-yellow-400 fill-yellow-400" />
             Upgrade Machine
@@ -286,11 +286,11 @@ useEffect(() => {
         </div>
 
       {/* Rainbow Terminal */}
-      <div className="bg-[#090E1A] border border-white/5 rounded-2xl overflow-hidden shadow-2xl">
-        <div className="bg-gradient-to-r from-pink-500/10 via-purple-500/10 to-cyan-500/10 px-4 py-2 flex items-center justify-between border-b border-white/5">
+      <div className="bg-[#101318] border border-white/5 rounded-2xl overflow-hidden shadow-2xl">
+        <div className="bg-gradient-to-r from-brand-500/10 via-brand-500/10 to-brand-500/10 px-4 py-2 flex items-center justify-between border-b border-white/5">
           <div className="flex items-center gap-2">
-            <TerminalIcon size={12} className="text-purple-400" />
-            <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest">{config?.coin_ticker}_Analysis.log</span>
+            <TerminalIcon size={12} className="text-brand-400" />
+            <span className="text-[9px] font-bold text-neutral-400 uppercase tracking-widest">{config?.coin_ticker}_Analysis.log</span>
           </div>
           <div className="flex gap-1">
             <div className="w-1.5 h-1.5 rounded-full bg-red-500/50" />
@@ -299,7 +299,7 @@ useEffect(() => {
           </div>
         </div>
             <div className="relative h-56 overflow-hidden">
-  <div className="absolute inset-0 p-4 font-mono text-[9px] space-y-2 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-purple-900/10 via-transparent to-transparent">
+  <div className="absolute inset-0 p-4 font-mono text-[9px] space-y-2 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-brand-900/10 via-transparent to-transparent">
     
     <AnimatePresence mode="popLayout">
       {logs?.map((log, idx) => (
@@ -310,8 +310,8 @@ useEffect(() => {
           exit={{ opacity: 0 }}
           className={`truncate ${
             log.includes("[+]")
-              ? "text-cyan-400 font-bold"
-              : "text-slate-500"
+              ? "text-brand-400 font-bold"
+              : "text-neutral-500"
           }`}
         >
           <span className="opacity-50 mr-2">{">"}</span>

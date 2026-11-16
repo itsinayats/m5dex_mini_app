@@ -95,46 +95,46 @@ const PartnerWithdrawal: React.FC = () => {
     <motion.div 
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="px-6 space-y-6 pb-24 text-slate-200"
+      className="px-6 space-y-6 pb-24 text-neutral-200"
     >
       {/* Protocol Header */}
       <div className="flex items-center justify-between pt-6">
         <div className="flex items-center gap-4">
             <button 
               onClick={() => navigate(-1)} 
-              className="w-10 h-10 flex items-center justify-center rounded-xl bg-slate-900 border-2 border-slate-800 text-slate-400 active:scale-90 transition-all shadow-[0_4px_10px_rgba(0,0,0,0.3)]"
+              className="w-10 h-10 flex items-center justify-center rounded-xl bg-neutral-900 border-2 border-neutral-800 text-neutral-400 active:scale-90 transition-all shadow-[0_4px_10px_rgba(0,0,0,0.3)]"
             >
                 <ArrowLeft size={20} />
             </button>
             <div>
-                <h1 className="text-[10px] font-black uppercase  text-slate-500  ">Financial_Relay_v2</h1>
+                <h1 className="text-[10px] font-black uppercase  text-neutral-500  ">Financial_Relay_v2</h1>
                 <p className="text-sm font-black text-white uppercase tracking-tight">Direct Comm. Payout</p>
             </div>
         </div>
-        <div className="w-10 h-10 bg-black border-2 border-slate-800 rounded-xl flex items-center justify-center relative">
-            <Cpu size={18} className="text-cyan-500" />
-            <div className="absolute -top-1 -right-1 w-2 h-2 bg-emerald-500 rounded-full border-2 border-[#0F172A] animate-pulse" />
+        <div className="w-10 h-10 bg-black border-2 border-neutral-800 rounded-xl flex items-center justify-center relative">
+            <Cpu size={18} className="text-brand-500" />
+            <div className="absolute -top-1 -right-1 w-2 h-2 bg-emerald-500 rounded-full border-2 border-[#171b22] animate-pulse" />
         </div>
       </div>
 
       {/* Hero: Revenue Stream Monitor (Mechanical Rainbow) */}
-      <div className="relative bg-[#0F172A] border-2 border-slate-800 rounded-[2rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+      <div className="relative bg-[#171b22] border-2 border-neutral-800 rounded-[2rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
         {/* Spectral Energy Rail */}
-        <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-pink-500 via-purple-500 via-blue-500 via-cyan-500 via-emerald-500 via-yellow-500 to-red-500" />
+        <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-brand-500 via-brand-500 to-brand-500" />
         
         <div className="p-8 text-center relative">
           <div className="flex justify-center mb-3">
-             <div className="px-3 py-1 bg-black border border-slate-800 rounded-full flex items-center gap-2">
+             <div className="px-3 py-1 bg-black border border-neutral-800 rounded-full flex items-center gap-2">
                 <Activity size={10} className="text-emerald-500" />
-                <span className="text-[8px] font-black text-slate-500 uppercase tracking-widest">Active_Stream_Authorized</span>
+                <span className="text-[8px] font-black text-neutral-500 uppercase tracking-widest">Active_Stream_Authorized</span>
              </div>
           </div>
           
-          <p className="text-[9px] font-black text-slate-600 uppercase tracking-[0.4em] mb-1  ">Claimable_Commission</p>
+          <p className="text-[9px] font-black text-neutral-600 uppercase tracking-[0.4em] mb-1  ">Claimable_Commission</p>
           <h2 className="text-5xl font-black tracking-tighter   text-white tabular-nums">
             {partnerBalance.toLocaleString(undefined, { minimumFractionDigits: 2 })}
           </h2>
-          <div className="mt-3 inline-block bg-gradient-to-r from-pink-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent font-black text-[10px] uppercase ">
+          <div className="mt-3 inline-block bg-gradient-to-r from-brand-400 via-brand-400 to-brand-400 bg-clip-text text-transparent font-black text-[10px] uppercase ">
             GRAM
           </div>
         </div>
@@ -146,15 +146,15 @@ const PartnerWithdrawal: React.FC = () => {
 
       {/* Extraction Interface */}
       <div className="space-y-4">
-        <div className="bg-black/40 border-2 border-slate-800 rounded-3xl p-6 space-y-4">
+        <div className="bg-black/40 border-2 border-neutral-800 rounded-3xl p-6 space-y-4">
           <div className="flex justify-between items-center">
             <div className="flex items-center gap-2">
-              <TerminalIcon size={14} className="text-cyan-500" />
-              <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">INPUT_AMOUNT</span>
+              <TerminalIcon size={14} className="text-brand-500" />
+              <span className="text-[10px] font-black text-neutral-400 uppercase tracking-widest">INPUT_AMOUNT</span>
             </div>
             <button 
               onClick={setMax} 
-              className="text-[9px] font-black text-white uppercase tracking-widest bg-slate-800 border border-slate-700 px-3 py-1.5 rounded-lg hover:bg-slate-700 transition-all active:scale-95 shadow-lg"
+              className="text-[9px] font-black text-white uppercase tracking-widest bg-neutral-800 border border-neutral-700 px-3 py-1.5 rounded-lg hover:bg-neutral-700 transition-all active:scale-95 shadow-lg"
             >
               Max
             </button>
@@ -169,15 +169,15 @@ const PartnerWithdrawal: React.FC = () => {
     className={`w-full bg-black border-2 ${
       error
         ? "border-red-500/50"
-        : "border-slate-800 focus:border-cyan-500/50"
-    } rounded-2xl p-6 text-3xl font-black text-white focus:outline-none transition-all placeholder:text-slate-900 font-mono`}
+        : "border-neutral-800 focus:border-brand-500/50"
+    } rounded-2xl p-6 text-3xl font-black text-white focus:outline-none transition-all placeholder:text-neutral-900 font-mono`}
   />
 
   <div className="absolute right-6 top-1/2 -translate-y-1/2 flex flex-col items-end">
-    <span className="text-[10px] font-black text-slate-700 uppercase tracking-widest mb-1">
+    <span className="text-[10px] font-black text-neutral-700 uppercase tracking-widest mb-1">
       UNIT
     </span>
-    <span className="text-sm font-black text-cyan-500 uppercase">
+    <span className="text-sm font-black text-brand-500 uppercase">
       GRAM
     </span>
   </div>
@@ -185,11 +185,11 @@ const PartnerWithdrawal: React.FC = () => {
 
 {/*  {config?.coin_ticker} equivalent */}
 <div className="mt-3 px-2 flex items-center justify-between">
-  <span className="text-xs font-bold text-slate-500">
+  <span className="text-xs font-bold text-neutral-500">
      {config?.coin_ticker} to sell
   </span>
 
-  <span className="text-sm font-black text-cyan-400 font-mono">
+  <span className="text-sm font-black text-brand-400 font-mono">
     {amount && !isNaN(Number(amount))
       ? `${(Number(amount) / config?.coinPriceTON).toLocaleString()} ${config?.coin_ticker}`
       : `0 ${config?.coin_ticker}`}
@@ -230,10 +230,10 @@ const PartnerWithdrawal: React.FC = () => {
           }`}
         >
           {/* Rainbow Gradient Background */}
-          <div className={`absolute inset-0 bg-gradient-to-r from-pink-500 via-purple-500 via-blue-500 via-cyan-500 ${!isButtonDisabled ? 'animate-gradient-x' : ''}`} />
+          <div className={`absolute inset-0 bg-gradient-to-r from-brand-500 via-brand-500 ${!isButtonDisabled ? 'animate-gradient-x' : ''}`} />
           
           {/* Inner Dark Mask */}
-          <div className="absolute inset-[2px] bg-[#0F172A] rounded-[14px] flex items-center justify-center group-hover:bg-transparent transition-colors duration-300">
+          <div className="absolute inset-[2px] bg-[#171b22] rounded-[14px] flex items-center justify-center group-hover:bg-transparent transition-colors duration-300">
             {isLoading ? (
               <Activity size={20} className="animate-spin text-white" />
             ) : (
@@ -247,15 +247,15 @@ const PartnerWithdrawal: React.FC = () => {
       </div>
 
       {/* Protocol Specs (Industrial Information) */}
-      <div className="bg-black/40 border-2 border-slate-800 rounded-3xl p-6 space-y-6">
+      <div className="bg-black/40 border-2 border-neutral-800 rounded-3xl p-6 space-y-6">
         <div className="flex items-center gap-2">
-            <ShieldCheck size={14} className="text-slate-500" />
-            <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Protocol_Clearance</span>
+            <ShieldCheck size={14} className="text-neutral-500" />
+            <span className="text-[10px] font-black text-neutral-500 uppercase tracking-widest">Protocol_Clearance</span>
         </div>
         
         <div className="grid grid-cols-2 gap-4">
-            <div className="bg-slate-900/50 border border-slate-800 p-4 rounded-2xl shadow-inner">
-                <p className="text-[8px] font-black text-slate-600 uppercase tracking-widest mb-2">Commission_Rate</p>
+            <div className="bg-neutral-900/50 border border-neutral-800 p-4 rounded-2xl shadow-inner">
+                <p className="text-[8px] font-black text-neutral-600 uppercase tracking-widest mb-2">Commission_Rate</p>
                 <div className="flex items-center gap-2">
                     <div className="w-8 h-8 bg-black border border-emerald-500/30 rounded-lg flex items-center justify-center text-emerald-500">
                         <Percent size={14} />
@@ -264,10 +264,10 @@ const PartnerWithdrawal: React.FC = () => {
                 </div>
             </div>
             
-            <div className="bg-slate-900/50 border border-slate-800 p-4 rounded-2xl shadow-inner">
-                <p className="text-[8px] font-black text-slate-600 uppercase tracking-widest mb-2">Network_Mode</p>
+            <div className="bg-neutral-900/50 border border-neutral-800 p-4 rounded-2xl shadow-inner">
+                <p className="text-[8px] font-black text-neutral-600 uppercase tracking-widest mb-2">Network_Mode</p>
                 <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 bg-black border border-cyan-500/30 rounded-lg flex items-center justify-center text-cyan-400">
+                    <div className="w-8 h-8 bg-black border border-brand-500/30 rounded-lg flex items-center justify-center text-brand-400">
                         <Zap size={14} />
                     </div>
                     <span className="text-sm font-black text-white   uppercase tracking-tighter">Instant</span>
@@ -277,7 +277,7 @@ const PartnerWithdrawal: React.FC = () => {
 
         <div className="p-4 bg-red-500/5 border-2 border-red-500/10 rounded-2xl flex gap-4">
             <AlertCircle size={18} className="text-red-500/50 shrink-0" />
-            <p className="text-[8px] font-black text-slate-600 uppercase leading-relaxed tracking-widest  ">
+            <p className="text-[8px] font-black text-neutral-600 uppercase leading-relaxed tracking-widest  ">
               [CRITICAL] Payouts are computed via {config?.coin_ticker} real-time modules. Ensure your target TON_RELAY is synchronized before confirming withdrawal.
             </p>
         </div>
@@ -288,12 +288,12 @@ const PartnerWithdrawal: React.FC = () => {
       <div className="space-y-4">
         <div className="flex items-center justify-between px-1">
           <div className="flex items-center gap-2">
-            <History size={12} className="text-slate-500" />
-            <h3 className="text-[9px] font-black uppercase tracking-[0.2em] text-slate-500">GRAM Transaction History</h3>
+            <History size={12} className="text-neutral-500" />
+            <h3 className="text-[9px] font-black uppercase tracking-[0.2em] text-neutral-500">GRAM Transaction History</h3>
           </div>
         </div>
 
-        <div className="bg-[#090E1A] border border-white/5 rounded-3xl overflow-hidden shadow-2xl">
+        <div className="bg-[#101318] border border-white/5 rounded-3xl overflow-hidden shadow-2xl">
           <div className="divide-y divide-white/5">
             {currentTransactions?.map((t) => {
               const isIncome = t.type==='referral_commission';
@@ -301,7 +301,7 @@ const PartnerWithdrawal: React.FC = () => {
                 <div key={t._id} className="p-4 flex items-center justify-between hover:bg-white/[0.03] transition-all group relative">
                   <div className="flex items-center gap-4">
                     <div className={`w-10 h-10 rounded-xl border flex items-center justify-center transition-colors ${
-                      isIncome ? 'bg-cyan-500/5 border-cyan-500/20 text-cyan-400' : 'bg-pink-500/5 border-pink-500/20 text-pink-400'
+                      isIncome ? 'bg-brand-500/5 border-brand-500/20 text-brand-400' : 'bg-brand-500/5 border-brand-500/20 text-brand-400'
                     }`}>
                       {isIncome ? <ArrowDownLeft size={18} /> : <ArrowUpRight size={18} />}
                     </div>
@@ -310,30 +310,30 @@ const PartnerWithdrawal: React.FC = () => {
                         {t.description}
                       </p>
                       <div className="flex items-center gap-2">
-                          <p className="text-[8px] font-bold text-slate-600 uppercase tracking-tighter">
+                          <p className="text-[8px] font-bold text-neutral-600 uppercase tracking-tighter">
                             {new Date(t.created_at).toLocaleDateString()}
                           </p>
                           {t.hash && (
                             <a href={`https://tonviewer.com/transaction/${t.hash}`} target="_blank" rel="noreferrer" className="p-1">
-                              <ExternalLink size={10} className="text-purple-500 opacity-40 group-hover:opacity-100 transition-opacity" />
+                              <ExternalLink size={10} className="text-brand-500 opacity-40 group-hover:opacity-100 transition-opacity" />
                             </a>
                           )}
                       </div>
                     </div>
                   </div>
                   <div className="text-right">
-                    <p className={`text-[12px] font-black tabular-nums tracking-tighter ${isIncome ? 'text-cyan-400' : 'text-pink-400'}`}>
+                    <p className={`text-[12px] font-black tabular-nums tracking-tighter ${isIncome ? 'text-brand-400' : 'text-brand-400'}`}>
                       {isIncome ? '+' : '-'}{t.amount_ton.toFixed(2)} GRAM
                     </p>
                     <div className="flex items-center justify-end gap-1 mt-0.5">
-                        <div className={`w-1 h-1 rounded-full ${t.status === 'completed' ? 'bg-cyan-500' : 'bg-yellow-500'}`} />
+                        <div className={`w-1 h-1 rounded-full ${t.status === 'completed' ? 'bg-brand-500' : 'bg-yellow-500'}`} />
                                             <p
                         className={`text-[7px] font-black uppercase tracking-widest ${
                           t.status === "rejected"
                             ? "text-rose-400"
                             : t.status === "completed"
                             ? "text-emerald-400"
-                            : "text-slate-600"
+                            : "text-neutral-600"
                         }`}
                       >
                         {t.status}
@@ -347,14 +347,14 @@ const PartnerWithdrawal: React.FC = () => {
 
           {totalPages > 1 && (
             <div className="bg-white/5 p-4 flex items-center justify-between border-t border-white/5 backdrop-blur-md">
-              <button onClick={() => setCurrentPage(p => Math.max(1, p-1))} className="p-2 text-slate-500 hover:text-pink-500 transition-colors">
+              <button onClick={() => setCurrentPage(p => Math.max(1, p-1))} className="p-2 text-neutral-500 hover:text-brand-500 transition-colors">
                 <ChevronLeft size={20} />
               </button>
               <div className="flex flex-col items-center">
-                <span className="text-[8px] font-black text-slate-600  uppercase">Beam Layer</span>
-                <span className="text-[10px] font-black text-white tracking-widest">{currentPage} <span className="text-slate-600 mx-1">/</span> {totalPages}</span>
+                <span className="text-[8px] font-black text-neutral-600  uppercase">Beam Layer</span>
+                <span className="text-[10px] font-black text-white tracking-widest">{currentPage} <span className="text-neutral-600 mx-1">/</span> {totalPages}</span>
               </div>
-              <button onClick={() => setCurrentPage(p => Math.min(totalPages, p+1))} className="p-2 text-slate-500 hover:text-cyan-500 transition-colors">
+              <button onClick={() => setCurrentPage(p => Math.min(totalPages, p+1))} className="p-2 text-neutral-500 hover:text-brand-500 transition-colors">
                 <ChevronRight size={20} />
               </button>
             </div>

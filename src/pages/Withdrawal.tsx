@@ -106,22 +106,22 @@ const Withdrawal: React.FC = () => {
   };
 
   return (
-    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="px-6 space-y-6 pb-24 text-slate-200">
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="px-6 space-y-6 pb-24 text-neutral-200">
       
       {/* Protocol Header */}
       <div className="flex items-center justify-between pt-6">
         <div className="flex items-center gap-4">
-            <button onClick={() => showExchangeList ? setShowExchangeList(false) : navigate(-1)} className="w-10 h-10 flex items-center justify-center rounded-xl bg-slate-900 border-2 border-slate-800 text-slate-400 active:scale-90">
+            <button onClick={() => showExchangeList ? setShowExchangeList(false) : navigate(-1)} className="w-10 h-10 flex items-center justify-center rounded-xl bg-neutral-900 border-2 border-neutral-800 text-neutral-400 active:scale-90">
                 <ArrowLeft size={20} />
             </button>
             <div>
-                <h1 className="text-[10px] font-black uppercase  text-slate-500  ">Financial_Module_v8</h1>
+                <h1 className="text-[10px] font-black uppercase  text-neutral-500  ">Financial_Module_v8</h1>
                 <p className="text-sm font-black text-white uppercase tracking-tight">{showExchangeList ? 'Select Exchange' : 'Payer_Protocol'}</p>
             </div>
         </div>
         {!showExchangeList && (
-            <div className="w-10 h-10 bg-black border-2 border-slate-800 rounded-xl flex items-center justify-center">
-                <ShieldCheck size={18} className="text-cyan-500" />
+            <div className="w-10 h-10 bg-black border-2 border-neutral-800 rounded-xl flex items-center justify-center">
+                <ShieldCheck size={18} className="text-brand-500" />
             </div>
         )}
       </div>
@@ -131,7 +131,7 @@ const Withdrawal: React.FC = () => {
           <div className="grid grid-cols-1 gap-3">
             {exchanges?.map((ex) => (
               <button key={ex.name} onClick={() => { selectExchange(ex.name); setShowExchangeList(false); }}
-                className={`relative group overflow-hidden w-full p-4 rounded-2xl border-2 flex justify-between items-center transition-all ${user.selected_exchange === ex.name ? 'bg-slate-900 border-emerald-500 shadow-[0_0_20px_rgba(16,185,129,0.1)]' : 'bg-[#090E1A] border-slate-800'}`}>
+                className={`relative group overflow-hidden w-full p-4 rounded-2xl border-2 flex justify-between items-center transition-all ${user.selected_exchange === ex.name ? 'bg-neutral-900 border-emerald-500 shadow-[0_0_20px_rgba(16,185,129,0.1)]' : 'bg-[#101318] border-neutral-800'}`}>
                 <div className="flex items-center gap-4">
                   <div className="w-11 h-11 rounded-lg bg-white p-2 flex items-center justify-center shadow-inner"><img src={ex.logo} alt={ex.name} className="w-full h-full object-contain" /></div>
                   <span className="font-black uppercase tracking-widest text-[11px]  ">{ex.name}</span>
@@ -143,21 +143,21 @@ const Withdrawal: React.FC = () => {
         ) : (
           <>
             {/* Main Payout HUD (Mechanical Rainbow) */}
-            <div className="relative bg-[#0F172A] border-2 border-slate-800 rounded-[2.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+            <div className="relative bg-[#171b22] border-2 border-neutral-800 rounded-[2.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
               {/* Spectral Power Rail */}
-              <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-pink-500 via-purple-500 via-blue-500 via-cyan-500 via-emerald-500 via-yellow-500 to-red-500" />
+              <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-brand-500 via-brand-500 to-brand-500" />
               
               <div className="p-8 text-center relative">
                 <div className="flex justify-center mb-4">
-                   <div className="px-3 py-1 bg-black border border-slate-800 rounded-full flex items-center gap-2">
-                      <div className="w-1.5 h-1.5 rounded-full bg-cyan-500 animate-pulse" />
-                      <span className="text-[8px] font-black text-slate-500 uppercase tracking-widest">Authorization_Limit</span>
+                   <div className="px-3 py-1 bg-black border border-neutral-800 rounded-full flex items-center gap-2">
+                      <div className="w-1.5 h-1.5 rounded-full bg-brand-500 animate-pulse" />
+                      <span className="text-[8px] font-black text-neutral-500 uppercase tracking-widest">Authorization_Limit</span>
                    </div>
                 </div>
                 <h2 className="text-6xl font-black tracking-tighter   text-white tabular-nums">
                   {limitTon.toFixed(2)}
                 </h2>
-                <div className="mt-2 inline-block bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 bg-clip-text text-transparent font-black text-xs uppercase tracking-[0.4em]">TON_CREDITS</div>
+                <div className="mt-2 inline-block bg-gradient-to-r from-brand-500 via-brand-500 to-brand-500 bg-clip-text text-transparent font-black text-xs uppercase tracking-[0.4em]">TON_CREDITS</div>
               </div>
 
               {/* HUD Grid Overlay */}
@@ -166,28 +166,28 @@ const Withdrawal: React.FC = () => {
             </div>
 
             {/* Breakdown Matrix */}
-            {/* <div className="bg-black/40 border-2 border-slate-800 rounded-3xl p-6 space-y-5">
+            {/* <div className="bg-black/40 border-2 border-neutral-800 rounded-3xl p-6 space-y-5">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <Activity size={14} className="text-cyan-500" />
-                  <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Telemetry_Data</span>
+                  <Activity size={14} className="text-brand-500" />
+                  <span className="text-[10px] font-black text-neutral-400 uppercase tracking-widest">Telemetry_Data</span>
                 </div>
-                <BarChart3 size={14} className="text-slate-700" />
+                <BarChart3 size={14} className="text-neutral-700" />
               </div>
 
               <div className="space-y-4">
                 {[
-                  { label: "GRAM Tasks", base: user.tontaskamount, color: "from-pink-500" },
-                  { label: "RANK Boosts", base: user.totalrankboostamount, color: "from-purple-500" },
-                  { label: "Peer Activity", base: user.friends_ton_tasks_total + user.friends_boost_rank_total, color: "from-cyan-500" }
+                  { label: "GRAM Tasks", base: user.tontaskamount, color: "from-brand-500" },
+                  { label: "RANK Boosts", base: user.totalrankboostamount, color: "from-brand-500" },
+                  { label: "Peer Activity", base: user.friends_ton_tasks_total + user.friends_boost_rank_total, color: "from-brand-500" }
                 ].map((item, idx) => (
                   <div key={idx} className="relative group">
-                    <div className="flex justify-between items-end pb-3 border-b border-slate-800/50">
+                    <div className="flex justify-between items-end pb-3 border-b border-neutral-800/50">
                         <div className="flex items-center gap-3">
                            <div className={`w-1 h-6 bg-gradient-to-b ${item.color} to-transparent rounded-full`} />
                            <div>
                               <p className="text-[10px] font-black text-white uppercase   tracking-tight">{item.label}</p>
-                              <p className="text-[8px] font-black text-slate-600 uppercase tracking-tighter  ">Yield 5%</p>
+                              <p className="text-[8px] font-black text-neutral-600 uppercase tracking-tighter  ">Yield 5%</p>
                            </div>
                         </div>
                         <p className="text-sm font-black text-white tabular-nums">+{( (item.base || 0) * 0.05).toFixed(2)}</p>
@@ -200,9 +200,9 @@ const Withdrawal: React.FC = () => {
             {/* Execution Trigger */}
             <div className="pt-2">
               {getCooldown() ? (
-                <div className="w-full bg-slate-900 border-2 border-red-500/20 p-5 rounded-2xl flex flex-col items-center gap-2">
+                <div className="w-full bg-neutral-900 border-2 border-red-500/20 p-5 rounded-2xl flex flex-col items-center gap-2">
                   <Lock size={20} className="text-red-500/40" />
-                  <p className="text-[9px] font-black text-slate-500 uppercase ">Temporal_Lock_Active</p>
+                  <p className="text-[9px] font-black text-neutral-500 uppercase ">Temporal_Lock_Active</p>
                   <p className="text-lg font-black text-red-400 font-mono tracking-tighter">{formatCooldown(getCooldown()!)}</p>
                 </div>
               ) : (
@@ -213,8 +213,8 @@ const Withdrawal: React.FC = () => {
                     allQualifiersMet ? 'active:scale-95' : 'opacity-40 grayscale'
                   }`}
                 >
-                  <div className={`absolute inset-0 bg-gradient-to-r from-pink-500 via-purple-500 via-blue-500 via-cyan-500 ${allQualifiersMet ? 'animate-gradient-x' : ''}`} />
-                  <div className="absolute inset-[2px] bg-[#0F172A] rounded-[14px] flex items-center justify-center gap-3">
+                  <div className={`absolute inset-0 bg-gradient-to-r from-brand-500 via-brand-500 ${allQualifiersMet ? 'animate-gradient-x' : ''}`} />
+                  <div className="absolute inset-[2px] bg-[#171b22] rounded-[14px] flex items-center justify-center gap-3">
                     {isLoading ? (
                        <Activity size={18} className="animate-spin text-white" />
                     ) : (
@@ -232,30 +232,30 @@ const Withdrawal: React.FC = () => {
             <div className="space-y-4">
               <div className="flex justify-between items-center px-1">
                 <div className="flex items-center gap-2">
-                   <Terminal size={12} className="text-slate-600" />
-                   <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-500">Withdrawal Qualifiers</h3>
+                   <Terminal size={12} className="text-neutral-600" />
+                   <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-neutral-500">Withdrawal Qualifiers</h3>
                 </div>
-                <span className="text-[10px] font-black   text-cyan-500">{qualifiers.filter(q => q.status).length}/{qualifiers.length} VALID</span>
+                <span className="text-[10px] font-black   text-brand-500">{qualifiers.filter(q => q.status).length}/{qualifiers.length} VALID</span>
               </div>
 
               <div className="grid grid-cols-1 gap-3">
                 {qualifiers?.map((q) => (
-                  <div key={q.id} onClick={q.action} className={`group relative p-4 rounded-2xl border-2 transition-all ${q.status ? 'bg-slate-900/50 border-slate-800' : 'bg-black/20 border-slate-800 opacity-60'} ${q.action ? 'cursor-pointer active:scale-95' : ''}`}>
+                  <div key={q.id} onClick={q.action} className={`group relative p-4 rounded-2xl border-2 transition-all ${q.status ? 'bg-neutral-900/50 border-neutral-800' : 'bg-black/20 border-neutral-800 opacity-60'} ${q.action ? 'cursor-pointer active:scale-95' : ''}`}>
                     <div className="flex items-center justify-between">
                         <div className="flex items-center gap-4">
                             {q.id === 'exchange' && q.logo ? (
                                 <div className="w-8 h-8 rounded-lg bg-white p-1 shadow-inner"><img src={q.logo} alt="ex" className="w-full h-full object-contain" /></div>
                             ) : (
-                                <div className={`w-8 h-8 rounded-lg border-2 flex items-center justify-center transition-colors ${q.status ? 'bg-black border-emerald-500/50 text-emerald-400' : 'bg-black border-slate-800 text-slate-800'}`}>
-                                    {q.status ? <CheckCircle2 size={14} strokeWidth={3} /> : <div className="w-2 h-2 rounded-full bg-slate-800" />}
+                                <div className={`w-8 h-8 rounded-lg border-2 flex items-center justify-center transition-colors ${q.status ? 'bg-black border-emerald-500/50 text-emerald-400' : 'bg-black border-neutral-800 text-neutral-800'}`}>
+                                    {q.status ? <CheckCircle2 size={14} strokeWidth={3} /> : <div className="w-2 h-2 rounded-full bg-neutral-800" />}
                                 </div>
                             )}
                             <div>
                                 <p className="text-[11px] font-black text-white uppercase   tracking-tight">{q.label}</p>
-                                <p className="text-[9px] font-black text-slate-500 uppercase tracking-tighter">{q.value}</p>
+                                <p className="text-[9px] font-black text-neutral-500 uppercase tracking-tighter">{q.value}</p>
                             </div>
                         </div>
-                        {q.action && !q.status && <ChevronRight size={14} className="text-slate-700 group-hover:text-white transition-colors" />}
+                        {q.action && !q.status && <ChevronRight size={14} className="text-neutral-700 group-hover:text-white transition-colors" />}
                     </div>
                   </div>
                 ))}
@@ -267,7 +267,7 @@ const Withdrawal: React.FC = () => {
                 <div className="w-10 h-10 rounded-xl bg-red-500/10 flex items-center justify-center shrink-0">
                    <AlertCircle size={20} className="text-red-500/60" />
                 </div>
-                <p className="text-[9px] font-black text-slate-600 uppercase leading-relaxed tracking-widest  ">
+                <p className="text-[9px] font-black text-neutral-600 uppercase leading-relaxed tracking-widest  ">
                   Critical: Withdrawal protocol resets every week. Network weight status must be verified during the validation phase.
                 </p>
             </div>

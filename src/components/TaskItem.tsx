@@ -67,34 +67,34 @@ const TaskItem: React.FC<TaskItemProps> = ({ task, onComplete }) => {
   const getButtonIcon = () => {
     // COMPLETED
     if (task.completed_at) {
-      return <CircleCheck size={18} />;
+      return <CircleCheck size={30} />;
     }
 
     // LOADING
     if (loading) {
-      return <Loader2 size={18} className="animate-spin" />;
+      return <Loader2 size={30} className="animate-spin" />;
     }
 
     // READY TO CLAIM
     if (taskReadyToClaim) {
-      return <Gift size={18} />;
+      return <Gift size={30} />;
     }
 
     // DEFAULT
-    return <ExternalLink size={18} />;
+    return <ExternalLink size={30} />;
   };
 
   // ================= BUTTON STYLE =================
   const getButtonClass = () => {
     if (task.completed_at) {
-      return "bg-emerald-600 text-white";
+      return "text-brand-400";
     }
 
     if (taskReadyToClaim) {
-      return "bg-yellow-600 text-white";
+      return "text-emerald-400";
     }
 
-    return "bg-white text-black";
+    return "text-white";
   };
 
 
@@ -347,9 +347,9 @@ const openTelegramChannel = (link?: string) => {
 };
 
   return (
-    <div className="relative rounded-2xl p-[1px] bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-400 overflow-hidden">
+    <div className="relative rounded-2xl p-[1px] bg-gradient-to-r from-brand-500 via-brand-500 to-brand-400 overflow-hidden">
 
-      <div className="bg-[#0F172A] rounded-2xl p-4 flex items-center justify-between">
+      <div className="bg-[#171b22] rounded-2xl p-4 flex items-center justify-between">
 
         {/* LEFT */}
         <div className="flex items-center gap-3">
@@ -363,11 +363,11 @@ const openTelegramChannel = (link?: string) => {
               {task.title}
             </h4>
 
-            <p className="text-cyan-400 text-xs mt-1">
+            <p className="text-brand-400 text-xs mt-1">
               +{task.reward.toLocaleString()} {config?.coin_ticker}
             </p>
             
-            {task.type=="youtube" && <button className="text-slate-600 text-sm"  onClick={playVideo}>Watch this video Again</button>}
+            {task.type=="youtube" && <button className="text-neutral-600 text-sm"  onClick={playVideo}>Watch this video Again</button>}
             
             
           </div>

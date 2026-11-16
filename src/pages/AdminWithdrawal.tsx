@@ -217,11 +217,11 @@ console.log(e)
     <div className="space-y-8">
       <div className="flex justify-between items-center">
         <div className="flex items-center gap-3">
-          <CreditCard className="text-blue-500" size={32} />
+          <CreditCard className="text-brand-500" size={32} />
           <h1 className="text-3xl font-black uppercase tracking-tighter">Withdrawal Requests</h1>
         </div>
         <div className="flex gap-4">
-          <span className="text-[10px] font-bold text-gray-500 uppercase">Total: {totalCount}</span>
+          <span className="text-[10px] font-bold text-neutral-500 uppercase">Total: {totalCount}</span>
         </div>
           <TonConnectButton />
       </div>
@@ -232,7 +232,7 @@ console.log(e)
         <div className="overflow-x-auto">
           <table className="w-full text-left">
             <thead>
-              <tr className="text-[10px] uppercase font-black text-gray-500 border-b border-white/5">
+              <tr className="text-[10px] uppercase font-black text-neutral-500 border-b border-white/5">
                 <th className="px-6 py-4">User</th>
                 <th className="px-6 py-4">Address</th>
                 <th className="px-6 py-4">Amount (GRAM)</th>
@@ -244,7 +244,7 @@ console.log(e)
             <tbody className="divide-y divide-white/5">
               {adminWithdrawals.length === 0 ? (
                 <tr>
-                  <td colSpan={6} className="px-6 py-12 text-center text-gray-500 uppercase text-xs font-bold tracking-widest">
+                  <td colSpan={6} className="px-6 py-12 text-center text-neutral-500 uppercase text-xs font-bold tracking-widest">
                     No withdrawal requests found
                   </td>
                 </tr>
@@ -254,13 +254,13 @@ console.log(e)
                     <td className="px-6 py-4">
                       <div className="flex flex-col">
                         <span className="text-sm font-black">{w.username || "Anonymous"}</span>
-                        <span className="text-[10px] text-gray-500 font-mono">{w.user_id}<span className="text-red-400">{w.comment?`(${w.comment})`:""}</span></span>
+                        <span className="text-[10px] text-neutral-500 font-mono">{w.user_id}<span className="text-red-400">{w.comment?`(${w.comment})`:""}</span></span>
                       </div>
                     </td>
-                    <td className="px-6 py-4 font-black text-blue-400">
+                    <td className="px-6 py-4 font-black text-brand-400">
                       {w.walletAddress}
                     </td>
-                    <td className="px-6 py-4 text-gray-400">
+                    <td className="px-6 py-4 text-neutral-400">
                       {w.amount_ton.toFixed(4)} GRAM
                     </td>
                     <td className="px-6 py-4">
@@ -272,7 +272,7 @@ console.log(e)
                         {w.status}
                       </span>
                     </td>
-                    <td className="px-6 py-4 text-gray-500">
+                    <td className="px-6 py-4 text-neutral-500">
                       {new Date(w.created_at).toLocaleDateString()}
                     </td>
                     <td className="px-6 py-4">
@@ -313,7 +313,7 @@ console.log(e)
           >
             Previous
           </button>
-          <span className="text-xs font-bold uppercase tracking-widest text-gray-500">
+          <span className="text-xs font-bold uppercase tracking-widest text-neutral-500">
             Page {currentPage} of {totalPages}
           </span>
           <button

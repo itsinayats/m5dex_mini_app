@@ -726,7 +726,6 @@ const verifyIP = (req: any, res: any, next: any) => {
 // Middleware to authenticate Telegram initData
 const authenticateTelegram = (req: any, res: any, next: any) => {
   const initData = req.headers["x-telegram-init-data"];
-    console.log("Telegram initData:", botToken, initData);
 
 
   if (!botToken) {
@@ -976,7 +975,7 @@ app.post("/api/user/init", authenticateTelegram, async (req: any, res) => {
     const REFER_FRIEND_BONUS= SINGLE_JOINING_BONUS+REFERRAL_JOINING_BONUS;
     let totalReward = AGE_REWARDS;
     let user = await User.findOne({ id });
-
+    console.log("User found:", id);
 
     if (user.welcomeUser) {
       //award premium reward

@@ -21,19 +21,19 @@ const Home: React.FC = () => {
 
   // Spectrum Mapping: Assigning colors based on the rainbow spectrum
   const earningsSummary = [
-    { label: "Daily Checkin", value: user.checkin_balance, icon: Calendar, color: "text-red-400", bg: "bg-red-500/10", border: "border-red-500/20" },
-    { label: "Mining", value: user.mining_balance, icon: Pickaxe, color: "text-orange-400", bg: "bg-orange-500/10", border: "border-orange-500/20" },
-    { label: "Tasks", value: user.task_balance, icon: Zap, color: "text-yellow-400", bg: "bg-yellow-500/10", border: "border-yellow-500/20" },
-    { label: "Referrals", value: user.referral_balance, icon: Users, color: "text-emerald-400", bg: "bg-emerald-500/10", border: "border-emerald-500/20" },
-    { label: "Seniority", value: user.age_reward, icon: Trophy, color: "text-blue-400", bg: "bg-blue-500/10", border: "border-blue-500/20" },
-    { label: "Joining Bonus", value: user.joining_bonus, icon: UserCheck, color: "text-purple-400", bg: "bg-purple-500/10", border: "border-purple-500/20" },
+    { label: "Daily Checkin", value: user.checkin_balance, icon: Calendar, color: "text-brand-400", bg: "bg-brand-500/10", border: "border-brand-500/20" },
+    { label: "Mining", value: user.mining_balance, icon: Pickaxe, color: "text-brand-400", bg: "bg-brand-500/10", border: "border-brand-500/20" },
+    { label: "Tasks", value: user.task_balance, icon: Zap, color: "text-brand-400", bg: "bg-brand-500/10", border: "border-brand-500/20" },
+    { label: "Referrals", value: user.referral_balance, icon: Users, color: "text-brand-400", bg: "bg-brand-500/10", border: "border-brand-500/20" },
+    { label: "Seniority", value: user.age_reward, icon: Trophy, color: "text-brand-400", bg: "bg-brand-500/10", border: "border-brand-500/20" },
+    { label: "Joining Bonus", value: user.joining_bonus, icon: UserCheck, color: "text-brand-400", bg: "bg-brand-500/10", border: "border-brand-500/20" },
   ];
 
   return (
     <motion.div 
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="px-6 space-y-6 pb-24 text-slate-200"
+      className="px-6 space-y-6 pb-24 text-neutral-200"
     >
       {/* Iridescent Balance Hero */}
       <div className="pt-2">
@@ -42,10 +42,10 @@ const Home: React.FC = () => {
           <motion.div 
             animate={{ rotate: 360 }}
            
-            className="absolute -inset-1 bg-gradient-to-r from-red-500 via-yellow-500 via-green-500 via-blue-500 to-purple-500 rounded-[10px] blur-2xl opacity-20"
+            className="absolute -inset-1 bg-gradient-to-r from-brand-500 via-brand-500 to-brand-500 rounded-[10px] blur-2xl opacity-20"
           />
           
-    <div className="relative overflow-hidden bg-[#0F172A]/80 backdrop-blur-xl border border-white/10 rounded-[20px] p-8 shadow-2xl">
+    <div className="relative overflow-hidden bg-[#171b22]/80 backdrop-blur-xl border border-white/10 rounded-[20px] p-8 shadow-2xl">
   {/* Animated Mesh Gradient Background */}
   <div className="absolute inset-0 opacity-10 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] blend-overlay" />
   
@@ -82,9 +82,9 @@ const Home: React.FC = () => {
   </div>
 
   {/* Date */}
-  <div className="text-[8px] sm:text-[9px] text-white/60 mt-1 text-center">
+  {/* <div className="text-[8px] sm:text-[9px] text-white/60 mt-1 text-center">
     Next Price Date: 01-11-2026
-  </div>
+  </div> */}
 </div>
   
   <div className="relative z-10 flex flex-col items-center">
@@ -109,9 +109,9 @@ const Home: React.FC = () => {
 
       {/* Branding Line */}
       <div className="flex items-center gap-2 mt-2">
-          <div className="h-px w-4 bg-gradient-to-r from-transparent to-red-500" />
+          <div className="h-px w-4 bg-gradient-to-r from-transparent to-brand-500" />
           <span className="text-[10px] font-black text-white/40 uppercase ">{config?.coin_ticker}</span>
-          <div className="h-px w-4 bg-gradient-to-l from-transparent to-purple-500" />
+          <div className="h-px w-4 bg-gradient-to-l from-transparent to-brand-500" />
       </div>
       {/* USDT Value - Added Section */}
       <div className="flex items-center gap-1.5 opacity-60">
@@ -129,7 +129,7 @@ const Home: React.FC = () => {
 
     {/* Rainbow Progress Bar */}
     <div className="w-full h-1.5 bg-white/5 rounded-[10px] mt-8 overflow-hidden p-[1px]">
-      <div className="h-full w-full bg-gradient-to-r from-red-500 via-yellow-500 via-green-500 via-blue-500 to-purple-500 rounded-[10px]" />
+      <div className="h-full w-full bg-gradient-to-r from-brand-500 via-brand-500 to-brand-500 rounded-[10px]" />
     </div>
   </div>
 </div>
@@ -146,7 +146,7 @@ const Home: React.FC = () => {
       onClick={() => setShowCheckinModal(true)}
       className="flex flex-col items-center flex-1"
     >
-      <div className="w-8 h-8 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400">
+      <div className="w-8 h-8 rounded-lg bg-brand-500/10 border border-brand-500/20 flex items-center justify-center text-brand-400">
         <Calendar size={16} />
       </div>
       <span className="text-[8px] font-bold text-white/70 mt-1">
@@ -161,7 +161,7 @@ const Home: React.FC = () => {
       rel="noreferrer"
       className="flex flex-col items-center flex-1"
     >
-      <div className="w-8 h-8 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400">
+      <div className="w-8 h-8 rounded-lg bg-brand-500/10 border border-brand-500/20 flex items-center justify-center text-brand-400">
         <Twitter size={16} />
       </div>
       <span className="text-[8px] font-bold text-white/70 mt-1">
@@ -176,7 +176,7 @@ const Home: React.FC = () => {
       rel="noreferrer"
       className="flex flex-col items-center flex-1"
     >
-      <div className="w-8 h-8 rounded-lg bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400">
+      <div className="w-8 h-8 rounded-lg bg-brand-500/10 border border-brand-500/20 flex items-center justify-center text-brand-400">
         <Send size={16} />
       </div>
       <span className="text-[8px] font-bold text-white/70 mt-1">
@@ -189,7 +189,7 @@ const Home: React.FC = () => {
       rel="noreferrer"
       className="flex flex-col items-center flex-1"
     >
-      <div className="w-8 h-8 rounded-lg bg-red-500/10 border border-red-500/20 flex items-center justify-center text-red-500">
+      <div className="w-8 h-8 rounded-lg bg-brand-500/10 border border-brand-500/20 flex items-center justify-center text-brand-500">
         <Globe size={16} />
       </div>
       <span className="text-[8px] font-bold text-white/70 mt-1">
@@ -204,7 +204,7 @@ const Home: React.FC = () => {
       rel="noreferrer"
       className="flex flex-col items-center flex-1"
     >
-      <div className="w-8 h-8 rounded-lg bg-pink-500/10 border border-pink-500/20 flex items-center justify-center text-pink-400">
+      <div className="w-8 h-8 rounded-lg bg-brand-500/10 border border-brand-500/20 flex items-center justify-center text-brand-400">
         <Instagram size={16} />
       </div>
       <span className="text-[8px] font-bold text-white/70 mt-1">
@@ -219,7 +219,7 @@ const Home: React.FC = () => {
       rel="noreferrer"
       className="flex flex-col items-center flex-1"
     >
-      <div className="w-8 h-8 rounded-lg bg-red-500/10 border border-red-500/20 flex items-center justify-center text-red-500">
+      <div className="w-8 h-8 rounded-lg bg-brand-500/10 border border-brand-500/20 flex items-center justify-center text-brand-500">
         <Youtube size={16} />
       </div>
       <span className="text-[8px] font-bold text-white/70 mt-1">
@@ -239,10 +239,10 @@ const Home: React.FC = () => {
       <div className="space-y-4">
         <div className="flex justify-between items-center px-1">
             <div className="flex items-center gap-2">
-               <div className="w-8 h-8 rounded-lg bg-[#0B1220] border border-white/10 flex items-center justify-center text-pink-400">
+               <div className="w-8 h-8 rounded-lg bg-[#13171d] border border-white/10 flex items-center justify-center text-brand-400">
                 <Target size={14} className="text-white/40" />
                 </div>
-                <h2 className="text-[9px] font-black uppercase  text-slate-500">Earning_Summary</h2>
+                <h2 className="text-[9px] font-black uppercase  text-neutral-500">Earning_Summary</h2>
             </div>
             <div className="h-px flex-1 mx-4 bg-gradient-to-r from-white/5 to-transparent" />
         </div>
@@ -254,7 +254,7 @@ const Home: React.FC = () => {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.05 }}
-              className={`bg-[#0F172A] border ${item.border} rounded-[10px] p-4 flex flex-col gap-3 relative overflow-hidden group hover:bg-white/[0.02] transition-colors`}
+              className={`bg-[#171b22] border ${item.border} rounded-[10px] p-4 flex flex-col gap-3 relative overflow-hidden group hover:bg-white/[0.02] transition-colors`}
             >
               <div className={`absolute -bottom-2 -right-2 opacity-[0.03] group-hover:opacity-[0.08] transition-opacity ${item.color}`}>
                 <item.icon size={48} />
@@ -268,7 +268,7 @@ const Home: React.FC = () => {
               </div>
 
               <div>
-                <p className="text-[8px] font-black uppercase tracking-[0.2em] text-slate-500 mb-1">{item.label}</p>
+                <p className="text-[8px] font-black uppercase tracking-[0.2em] text-neutral-500 mb-1">{item.label}</p>
                 <div className="flex items-baseline gap-1">
                     <span className="text-sm font-black text-white tabular-nums">
                         {Number(item.value ?? 0).toLocaleString(undefined, { minimumFractionDigits: 2 })}

@@ -154,7 +154,7 @@ const YouTubeTaskModal: React.FC<Props> = ({
 
       <div
         onClick={(e) => e.stopPropagation()}
-        className="relative w-[92%] max-w-2xl bg-[#0F172A] rounded-2xl shadow-2xl border border-white/10 overflow-hidden"
+        className="relative w-[92%] max-w-2xl bg-[#171b22] rounded-2xl shadow-2xl border border-white/10 overflow-hidden"
       >
 
         {/* HEADER */}
@@ -171,7 +171,7 @@ const YouTubeTaskModal: React.FC<Props> = ({
         <div className="relative w-full bg-black aspect-video">
           {!ready && (
             <div className="absolute inset-0 flex items-center justify-center bg-black z-20">
-              <div className="w-10 h-10 border-4 border-white/20 border-t-cyan-400 rounded-full animate-spin" />
+              <div className="w-10 h-10 border-4 border-white/20 border-t-brand-400 rounded-full animate-spin" />
             </div>
           )}
           <div id="yt-player" className="absolute inset-0 w-full h-full" />
@@ -181,7 +181,7 @@ const YouTubeTaskModal: React.FC<Props> = ({
         <div className="px-4 pt-3">
           <div className="w-full h-2 bg-white/10 rounded-full">
             <div
-              className="h-full bg-cyan-400"
+              className="h-full bg-brand-400"
               style={{ width: `${Math.min(100, percentWatched)}%` }}
             />
           </div>
@@ -197,11 +197,11 @@ const YouTubeTaskModal: React.FC<Props> = ({
 
   {/* HEADER */}
   <div className="flex items-center justify-between">
-    <p className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">
+    <p className="text-[10px] font-black uppercase tracking-[0.2em] text-neutral-400">
       Share Video with 10 Friends
     </p>
 
-    <span className="text-[9px] font-bold text-slate-500">
+    <span className="text-[9px] font-bold text-neutral-500">
       {sharesDone.length}/{SHARE_COUNT} Completed
     </span>
   </div>
@@ -209,7 +209,7 @@ const YouTubeTaskModal: React.FC<Props> = ({
   {/* PROGRESS BAR */}
   <div className="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
     <div
-      className="h-full bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 transition-all"
+      className="h-full bg-gradient-to-r from-brand-500 via-brand-500 to-brand-500 transition-all"
       style={{ width: `${(sharesDone.length / SHARE_COUNT) * 100}%` }}
     />
   </div>
@@ -229,7 +229,7 @@ const YouTubeTaskModal: React.FC<Props> = ({
             transition-all duration-300 border
             ${done
               ? "bg-emerald-500/10 border-emerald-400/30 text-emerald-400 shadow-[0_0_10px_rgba(16,185,129,0.2)]"
-              : "bg-[#0F172A] border-white/10 text-white hover:border-cyan-400/40 hover:bg-white/5"
+              : "bg-[#171b22] border-white/10 text-white hover:border-brand-400/40 hover:bg-white/5"
             }
           `}
         >
@@ -260,8 +260,8 @@ const YouTubeTaskModal: React.FC<Props> = ({
             disabled={!canVerify}
             className={`px-4 py-2 rounded-lg font-bold ${
               canVerify
-                ? "bg-cyan-500 text-black"
-                : "bg-gray-600 text-gray-300"
+                ? "bg-brand-500 text-black"
+                : "bg-neutral-600 text-neutral-300"
             }`}
           >
             {canVerify ? "Verify Task" : "Complete Watch + Share"}

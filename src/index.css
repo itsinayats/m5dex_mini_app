@@ -1,9 +1,86 @@
 @import "tailwindcss";
 
+/* M5Dex: yellow accents on near-black and charcoal surfaces. */
+@theme {
+  --color-brand-50: #fffde6;
+  --color-brand-100: #fff9b3;
+  --color-brand-200: #fff280;
+  --color-brand-300: #ffec66;
+  --color-brand-400: #ffe65b;
+  --color-brand-500: #ffe000;
+  --color-brand-600: #ffcf00;
+  --color-brand-700: #c7a200;
+  --color-brand-800: #806900;
+  --color-brand-900: #4d400d;
+  --color-brand-950: #29230c;
+}
+
+:root {
+  color-scheme: dark;
+  --app-background: #07090c;
+  --app-surface: #171b22;
+  --app-accent: #ffe000;
+}
+
 body {
-  @apply bg-black text-white antialiased;
+  margin: 0;
+  background: var(--app-background);
+  @apply text-white antialiased;
 }
 
 * {
   -webkit-tap-highlight-color: transparent;
+}
+
+.app-shell {
+  background:
+    radial-gradient(ellipse at 0% 0%, #ffe0000a, transparent 45%),
+    var(--app-background);
+}
+
+::selection {
+  background: #ffe00040;
+  color: #fff;
+}
+
+/* Solid yellow actions need dark labels, including nested icon/label spans.
+   Translucent badges and status controls retain their own text colors. */
+:is(button, a):is(
+  [class~="bg-brand-400"],
+  [class~="bg-brand-500"],
+  [class~="bg-brand-600"],
+  [class~="bg-brand-700"],
+  [class~="from-brand-400"],
+  [class~="from-brand-500"],
+  [class~="from-brand-600"],
+  [class~="from-brand-700"],
+  [class~="bg-[#ffe000]"]
+) {
+  color: #090b0f;
+}
+
+:is(button, a):is(
+  [class~="bg-brand-400"],
+  [class~="bg-brand-500"],
+  [class~="bg-brand-600"],
+  [class~="bg-brand-700"],
+  [class~="from-brand-400"],
+  [class~="from-brand-500"],
+  [class~="from-brand-600"],
+  [class~="from-brand-700"],
+  [class~="bg-[#ffe000]"]
+) :where(span, svg, p) {
+  color: inherit;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--app-accent);
+  outline-offset: 4px;
+}
+
+input,
+textarea,
+select {
+  accent-color: var(--app-accent);
 }

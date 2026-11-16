@@ -111,20 +111,20 @@ const WelcomeSlider: React.FC<WelcomeSliderProps> = ({ onComplete }) => {
     <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/90 backdrop-blur-md p-5">
 
       {/* Background glow */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-72 h-72 bg-purple-600/10 blur-[100px] rounded-full" />
-      <div className="absolute bottom-1/4 left-1/3 w-52 h-52 bg-cyan-500/10 blur-[90px] rounded-full" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-72 h-72 bg-brand-600/10 blur-[100px] rounded-full" />
+      <div className="absolute bottom-1/4 left-1/3 w-52 h-52 bg-brand-500/10 blur-[90px] rounded-full" />
 
       <div className="relative w-full max-w-md">
 
         {/* Card */}
-        <div className="relative overflow-hidden rounded-[28px] border border-white/10 bg-gradient-to-br from-white/[0.07] via-[#090909] to-purple-500/[0.05] shadow-2xl">
+        <div className="relative overflow-hidden rounded-[28px] border border-white/10 bg-gradient-to-br from-white/[0.07] via-[#090909] to-brand-500/[0.05] shadow-2xl">
 
           {/* Top gradient */}
-          <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-purple-500/10 to-transparent pointer-events-none" />
+          <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-brand-500/10 to-transparent pointer-events-none" />
 
           {/* Decorative circles */}
-          <div className="absolute -top-20 -right-20 w-48 h-48 rounded-full border border-purple-400/10" />
-          <div className="absolute -top-14 -right-14 w-36 h-36 rounded-full border border-cyan-400/10" />
+          <div className="absolute -top-20 -right-20 w-48 h-48 rounded-full border border-brand-400/10" />
+          <div className="absolute -top-14 -right-14 w-36 h-36 rounded-full border border-brand-400/10" />
 
           <div className="relative p-6 sm:p-8">
 
@@ -132,10 +132,10 @@ const WelcomeSlider: React.FC<WelcomeSliderProps> = ({ onComplete }) => {
             <div className="flex justify-between items-center mb-7">
 
               <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-pink-500/20 to-cyan-400/20 border border-white/10 flex items-center justify-center">
+                <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-brand-500/20 to-brand-400/20 border border-white/10 flex items-center justify-center">
                   <Sparkles
                     size={15}
-                    className="text-cyan-300"
+                    className="text-brand-300"
                   />
                 </div>
 
@@ -155,13 +155,13 @@ const WelcomeSlider: React.FC<WelcomeSliderProps> = ({ onComplete }) => {
 
               <div className="relative">
 
-                <div className="absolute inset-0 rounded-[30px] bg-gradient-to-r from-pink-500 to-cyan-400 blur-2xl opacity-20" />
+                <div className="absolute inset-0 rounded-[30px] bg-gradient-to-r from-brand-500 to-brand-400 blur-2xl opacity-20" />
 
-                <div className="relative w-24 h-24 rounded-[30px] border border-white/10 bg-gradient-to-br from-pink-500/10 via-purple-500/10 to-cyan-400/10 flex items-center justify-center shadow-[inset_0_0_30px_rgba(255,255,255,0.03)]">
+                <div className="relative w-24 h-24 rounded-[30px] border border-white/10 bg-gradient-to-br from-brand-500/10 via-brand-500/10 to-brand-400/10 flex items-center justify-center shadow-[inset_0_0_30px_rgba(255,255,255,0.03)]">
                   <Icon
                     size={42}
                     strokeWidth={1.5}
-                    className="text-cyan-300"
+                    className="text-brand-300"
                   />
                 </div>
 
@@ -172,11 +172,11 @@ const WelcomeSlider: React.FC<WelcomeSliderProps> = ({ onComplete }) => {
             {/* Text */}
             <div className="text-center">
 
-              <h1 className="text-3xl sm:text-4xl font-black uppercase tracking-tight bg-gradient-to-r from-white via-white to-slate-500 bg-clip-text text-transparent">
+              <h1 className="text-3xl sm:text-4xl font-black uppercase tracking-tight bg-gradient-to-r from-white via-white to-neutral-500 bg-clip-text text-transparent">
                 {slide.title}
               </h1>
 
-              <p className="mt-2 text-xs font-black uppercase tracking-[0.16em] bg-gradient-to-r from-pink-400 to-cyan-400 bg-clip-text text-transparent">
+              <p className="mt-2 text-xs font-black uppercase tracking-[0.16em] bg-gradient-to-r from-brand-400 to-brand-400 bg-clip-text text-transparent">
                 {slide.subtitle}
               </p>
 
@@ -197,10 +197,10 @@ const WelcomeSlider: React.FC<WelcomeSliderProps> = ({ onComplete }) => {
                     key={index}
                     className="flex items-center gap-3 rounded-xl border border-white/5 bg-white/[0.025] px-3 py-2.5"
                   >
-                    <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-pink-500/10 to-cyan-400/10 border border-white/5 flex items-center justify-center">
+                    <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-brand-500/10 to-brand-400/10 border border-white/5 flex items-center justify-center">
                       <FeatureIcon
                         size={14}
-                        className="text-cyan-300"
+                        className="text-brand-300"
                       />
                     </div>
 
@@ -222,7 +222,7 @@ const WelcomeSlider: React.FC<WelcomeSliderProps> = ({ onComplete }) => {
                   onClick={() => setCurrentSlide(index)}
                   className={`h-1.5 rounded-full transition-all duration-300 ${
                     index === currentSlide
-                      ? "w-7 bg-gradient-to-r from-pink-400 to-cyan-400"
+                      ? "w-7 bg-gradient-to-r from-brand-400 to-brand-400"
                       : "w-1.5 bg-white/20"
                   }`}
                 />
@@ -244,7 +244,7 @@ const WelcomeSlider: React.FC<WelcomeSliderProps> = ({ onComplete }) => {
 
               <button
                 onClick={nextSlide}
-                className="flex-1 flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-pink-500 to-cyan-400 py-3.5 text-[9px] font-black uppercase tracking-widest text-white shadow-lg shadow-purple-500/10 active:scale-[0.98] transition-all"
+                className="flex-1 flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-brand-500 to-brand-400 py-3.5 text-[9px] font-black uppercase tracking-widest text-white shadow-lg shadow-brand-500/10 active:scale-[0.98] transition-all"
               >
                 {currentSlide === slides.length - 1
                   ? "Start Earning"

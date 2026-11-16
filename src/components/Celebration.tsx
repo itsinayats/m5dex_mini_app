@@ -15,7 +15,7 @@ const Celebration: React.FC<CelebrationProps> = ({ show, content }) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-[#090E1A]/80 backdrop-blur-md pointer-events-none"
+          className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-[#101318]/80 backdrop-blur-md pointer-events-none"
         >
           {/* Decorative Grid Background for Overlay */}
           <div className="absolute inset-0 opacity-10" 
@@ -26,11 +26,11 @@ const Celebration: React.FC<CelebrationProps> = ({ show, content }) => {
             initial={{ scale: 0.8, y: 20, rotateX: 15 }}
             animate={{ scale: 1, y: 0, rotateX: 0 }}
             exit={{ scale: 0.9, opacity: 0 }}
-            className="relative bg-[#0F172A] border-2 border-emerald-500/30 rounded-[2rem] p-8 shadow-[0_0_50px_rgba(16,185,129,0.2)] text-center space-y-6 max-w-xs overflow-hidden"
+            className="relative bg-[#171b22] border-2 border-emerald-500/30 rounded-[2rem] p-8 shadow-[0_0_50px_rgba(16,185,129,0.2)] text-center space-y-6 max-w-xs overflow-hidden"
           >
             {/* Top Corner Accents */}
             <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-emerald-500" />
-            <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-cyan-500" />
+            <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-brand-500" />
 
             {/* Core Success Icon */}
             <div className="relative w-24 h-24 mx-auto flex items-center justify-center">
@@ -46,8 +46,8 @@ const Celebration: React.FC<CelebrationProps> = ({ show, content }) => {
 
             <div className="space-y-3 relative z-10">
               <div className="flex items-center justify-center gap-2 mb-1">
-                 <Cpu size={12} className="text-cyan-500" />
-                 <span className="text-[9px] font-black text-slate-500 uppercase ">Protocol_Success</span>
+                 <Cpu size={12} className="text-brand-500" />
+                 <span className="text-[9px] font-black text-neutral-500 uppercase ">Protocol_Success</span>
               </div>
               
               <h2 className="text-3xl font-black uppercase tracking-tighter text-white leading-none">
@@ -65,12 +65,12 @@ const Celebration: React.FC<CelebrationProps> = ({ show, content }) => {
             <div className="flex justify-center items-center gap-4 pt-2">
                 <div className="flex items-center gap-1.5">
                     <ShieldCheck size={10} className="text-emerald-500" />
-                    <span className="text-[8px] font-black text-slate-500 uppercase">Verified</span>
+                    <span className="text-[8px] font-black text-neutral-500 uppercase">Verified</span>
                 </div>
-                <div className="w-1 h-1 rounded-full bg-slate-800" />
+                <div className="w-1 h-1 rounded-full bg-neutral-800" />
                 <div className="flex items-center gap-1.5">
                     <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping" />
-                    <span className="text-[8px] font-black text-slate-500 uppercase">Live_Node</span>
+                    <span className="text-[8px] font-black text-neutral-500 uppercase">Live_Node</span>
                 </div>
             </div>
 
