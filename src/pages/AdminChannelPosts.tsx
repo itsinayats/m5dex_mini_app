@@ -30,6 +30,9 @@ const AdminChannelPosts: React.FC = () => {
   const { adminToken } = useAppContext();
 
   const CHAT_ID = import.meta.env.VITE_CHAT_ID;
+  const BOT_URL = import.meta.env.VITE_BOT_URL;
+  console.log("CHAT_ID:", CHAT_ID);
+  console.log("BOT_URL:", BOT_URL);
 
   const [channelPostTarget, setChannelPostTarget] =
     useState(CHAT_ID || "");
@@ -46,7 +49,7 @@ const AdminChannelPosts: React.FC = () => {
     useState<ChannelButton[]>([
       {
         text: "🚀 Start Now",
-        url: "https://t.me/tonwonpro_bot",
+        url: BOT_URL,
       },
     ]);
 

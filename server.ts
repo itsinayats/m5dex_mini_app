@@ -562,7 +562,7 @@ const seedConfig = async () => {
 },
 {
   "key": "telegram_bot_link",
-  "value": "https://t.me/tonwonpro_bot"
+  "value": "https://t.me/m5dexofficial_bot"
 },
 {
   "key": "staking_monthly_roi",
