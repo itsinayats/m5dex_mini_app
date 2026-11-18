@@ -155,7 +155,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
   // let telegramUser = decodeURIToJSON(initdata).user;
   //initdata = 'query_id=AAERwXNFAAAAABHBc0V4mIil&user=%7B%22id%22%3A1165213969%2C%22first_name%22%3A%22Inayat%22%2C%22last_name%22%3A%22Hussain%22%2C%22username%22%3A%22itsinayat%22%2C%22language_code%22%3A%22en%22%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2FiUHZ1sh1sknoFZhs4q0_ghxTbhp20EoHjiMZgn5MiTQ.svg%22%7D&auth_date=1788348362&signature=pnP3OnZEuG4Nv25enV6-B_-96w8OMAnWJbOzc803vfSv9HM5IgysfwN89W1Krq4jP9PRIHddc9xTKgibysxpAA&hash=c81c20b560b9c1b2c660e8993e83850eee4538f0ba32d8828598c7528f6bd8fb'
-  initdata ='query_id=AAERwXNFAAAAABHBc0W8BgeO&user=%7B%22id%22%3A1165213969%2C%22first_name%22%3A%22Inayat%22%2C%22last_name%22%3A%22Hussain%22%2C%22username%22%3A%22itsinayat%22%2C%22language_code%22%3A%22en%22%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2FiUHZ1sh1sknoFZhs4q0_ghxTbhp20EoHjiMZgn5MiTQ.svg%22%7D&auth_date=1794749499&signature=D98AUJM5GtSXIHJg9zPV7a48GkidSh5slBXZnBMclhE4tQxsmcplbUovB24EHkM4x-s4arnAqNssQdvbFdo_AA&hash=411cac8bb361c70a8eca96843d7959b3e662629e5cf75ff545a0de03196d9e32';
+  //initdata ='query_id=AAERwXNFAAAAABHBc0U8fiHo&user=%7B%22id%22%3A1165213969%2C%22first_name%22%3A%22Inayat%22%2C%22last_name%22%3A%22Hussain%22%2C%22username%22%3A%22itsinayat%22%2C%22language_code%22%3A%22en%22%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2FiUHZ1sh1sknoFZhs4q0_ghxTbhp20EoHjiMZgn5MiTQ.svg%22%7D&auth_date=1795010257&signature=aCRrHg5OynbXF4ThKWZiTosOSwNrPX1_z4m0zrfjSm_r7xyUDcPTYlokjDbmY2Bod3YTX-UYqSouGeXnybVhAA&hash=6a830e44767c14e298f4c2636d8b2d9aedcda2f1cc70507600ffe1a8bfe51d67';
   useEffect(() => {
   WebApp.expand();
   WebApp.setHeaderColor("#07090c");
@@ -319,7 +319,6 @@ const handleCheckin = async () => {
   const executeTaskCompletion = async (taskId: string,hash:string,amount:number,walletAddress:string) => {
     console.log("taskId",taskId);
     console.log("amount",amount);
-
     if (!user) return;
     const res = await fetch("/api/tasks/complete", {
       method: "POST",

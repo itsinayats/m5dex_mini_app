@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { motion } from "framer-motion";
 import {
   ArrowLeft,
@@ -15,7 +16,7 @@ import {
   CHAIN,
 } from "@tonconnect/ui-react";
 
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAppContext } from "../context/AppContext";
 
 const WithdrawGram: React.FC = () => {
@@ -37,8 +38,7 @@ const WithdrawGram: React.FC = () => {
   const [error, setError] = useState("");
   const [now, setNow] = useState(Date.now());
   const [loading, setLoading] = useState(false);
-
-  if (!user) return null;
+  const pendingTasksDialog = useRef<HTMLDialogElement>(null);
 
   const allTasks = tasks || [];
   const pendingCount = allTasks.filter((t) => !t.completed_at).length;
@@ -64,6 +64,8 @@ const WithdrawGram: React.FC = () => {
   */
 
   useEffect(() => {
+    if (!user || pendingCount > 0) return;
+
     if (
       userFriendlyAddress &&
       tonConnectUI.account?.chain.toString() !==
@@ -75,7 +77,23 @@ const WithdrawGram: React.FC = () => {
     } else if (userFriendlyAddress) {
       updateWallet(userFriendlyAddress);
     }
-  }, [userFriendlyAddress]);
+  }, [userFriendlyAddress, pendingCount, !!user]);
+
+  useEffect(() => {
+    const dialog = pendingTasksDialog.current;
+    if (!user || pendingCount === 0 || !dialog) return;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    if (!dialog.open) dialog.showModal();
+
+    return () => {
+      if (dialog.open) dialog.close();
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [pendingCount, !!user]);
+
+  if (!user) return null;
 
   /*
   |--------------------------------------------------------------------------
@@ -270,6 +288,7 @@ const WithdrawGram: React.FC = () => {
   */
 
   return (
+    <>
     <motion.div
       initial={{
         opacity: 0,
@@ -690,28 +709,6 @@ const WithdrawGram: React.FC = () => {
               )}
 
 
-              {pendingCount > 0 && (
-                <div
-                  role="status"
-                  className="rounded-2xl border border-amber-400/20 bg-amber-400/5 p-4"
-                >
-                  <div className="flex items-start gap-3">
-                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-amber-400/10 text-amber-300">
-                      <Lock size={18} />
-                    </div>
-                    <div className="min-w-0">
-                      <p className="text-sm font-bold text-amber-200">
-                        Complete your tasks to withdraw
-                      </p>
-                      <p className="mt-1 text-xs leading-relaxed text-neutral-400">
-                        You have {pendingCount} pending {pendingCount === 1 ? "task" : "tasks"}.
-                        {" "}Withdrawal will be available once all tasks are completed.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              )}
-
               {/* =================================================
                   ACTION BUTTONS
               ================================================= */}
@@ -724,16 +721,9 @@ const WithdrawGram: React.FC = () => {
                   Back
                 </button>
 
-                {pendingCount > 0 ? (
+                {userFriendlyAddress ? (
                   <button
-                    onClick={() => navigate("/tasks")}
-                    className="flex-[2] py-4 px-3 rounded-2xl bg-gradient-to-r from-brand-600 via-brand-600 to-brand-600 shadow-lg shadow-brand-500/20 font-black text-[10px] text-white uppercase tracking-widest active:scale-95 transition-all"
-                  >
-                    View Tasks
-                  </button>
-                ) : userFriendlyAddress ? (
-                  <button
-                    disabled={!!error || !!cooldown || loading}
+                    disabled={pendingCount > 0 || !!error || !!cooldown || loading}
                     onClick={handleFinalSubmit}
                     className={`flex-[2] py-4 rounded-2xl font-black text-[10px] uppercase tracking-widest transition-all ${
                       error || cooldown || loading
@@ -774,6 +764,39 @@ const WithdrawGram: React.FC = () => {
       </div>
 
     </motion.div>
+    {pendingCount > 0 && createPortal(
+      <dialog
+        ref={pendingTasksDialog}
+        aria-labelledby="pending-tasks-title"
+        aria-describedby="pending-tasks-description"
+        onCancel={(event) => event.preventDefault()}
+        className="fixed inset-0 m-auto w-[calc(100%-2rem)] max-w-sm max-h-[calc(100dvh-2rem)] overflow-y-auto rounded-[28px] border border-brand-500/20 bg-[#101318] p-6 text-center text-white shadow-2xl backdrop:bg-black/70 backdrop:backdrop-blur-md"
+      >
+        <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-2xl border border-brand-500/20 bg-brand-500/10 text-brand-500">
+          <Lock size={28} />
+        </div>
+        <h2 id="pending-tasks-title" className="text-xl font-bold">Complete your remaining tasks</h2>
+        <p id="pending-tasks-description" className="mt-3 text-sm leading-relaxed text-neutral-400">
+          You have {pendingCount} remaining {pendingCount === 1 ? "task" : "tasks"}.
+          {" "}Complete all tasks to unlock withdrawals.
+        </p>
+        <Link
+          to="/tasks"
+          autoFocus
+          className="mt-6 flex w-full items-center justify-center rounded-2xl bg-brand-500 px-4 py-4 text-sm font-bold text-black transition-colors hover:bg-brand-400"
+        >
+          Complete Remaining Tasks
+        </Link>
+        <button
+          onClick={() => navigate(-1)}
+          className="mt-3 w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm font-semibold text-neutral-400 transition-colors hover:text-white"
+        >
+          Go Back
+        </button>
+      </dialog>,
+      document.body
+    )}
+    </>
   );
 };
 
